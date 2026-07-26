@@ -4,10 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script>
+addEventListener('DOMContentLoaded', () => {
+  const t = setInterval(() => {
+    const d = document.querySelector('deck-stage');
+    if (d) { d.setAttribute('no-rail', ''); clearInterval(t); }
+  }, 80);
+  setTimeout(() => clearInterval(t), 15000);
+});
+</script>
 </head>
 <body>
 <x-dc>
 <helmet>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#5848C4"/><circle cx="100" cy="100" r="46" fill="none" stroke="#fff" stroke-width="7"/><circle cx="100" cy="100" r="13" fill="#fff"/><circle cx="100" cy="54" r="9" fill="#fff"/><circle cx="146" cy="100" r="9" fill="#fff"/><circle cx="100" cy="146" r="9" fill="#fff"/><circle cx="54" cy="100" r="9" fill="#fff"/></svg></template>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet">
@@ -222,12 +234,6 @@ section[data-deck-active] svg [data-draw]{stroke-dasharray:var(--len);stroke-das
           <sc-if value="{{ hasVid3 }}" hint-placeholder-val="{{ false }}"><video ref="{{ vidRef3 }}" controls="{{ true }}" preload="auto" playsInline="{{ true }}" style="width:100%;height:100%;object-fit:contain;display:block"></video></sc-if>
           <sc-if value="{{ noVid3 }}" hint-placeholder-val="{{ true }}"><div role="button" onClick="{{ onPick3 }}" onDrop="{{ onDrop3 }}" onDragOver="{{ onDragOver }}" style="width:64%;text-align:center;border:2.5px dashed #C9C2EC;border-radius:22px;padding:60px 44px;cursor:pointer" style-hover="border-color:#5848C4"><p style="margin:0;font-size:34px;font-weight:500;color:#16225C">Screen recording 3 — personalised feedback</p><p style="margin:14px 0 0;font-size:27px;color:#6C6F94">Drop an MP4 / WebM here, or click to browse</p></div></sc-if>
         </div>
-        <sc-if value="{{ hasActiveVid }}" hint-placeholder-val="{{ false }}">
-          <div style="position:absolute;right:22px;top:18px;display:flex;gap:26px;background:rgba(253,253,255,.92);border-radius:12px;padding:6px 14px">
-            <span role="button" onClick="{{ onReplaceActive }}" style="font-size:24px;color:#8B87B8;cursor:pointer" style-hover="color:#5848C4">Replace recording</span>
-            <span role="button" onClick="{{ onRemoveActive }}" style="font-size:24px;color:#8B87B8;cursor:pointer" style-hover="color:#5848C4">Remove</span>
-          </div>
-        </sc-if>
       </div>
       <div style="flex:none;min-height:62px">
         <div data-layer="c1" data-on="{{ step1 }}" style="flex-direction:column">
@@ -512,6 +518,7 @@ class Component extends DCLogic {
       const t = (e.target && e.target.tagName) || '';
       if (/INPUT|TEXTAREA|SELECT/.test(t) || e.metaKey || e.ctrlKey || e.altKey) return;
       if (e.key === 't' || e.key === 'T') this._toggleTimer();
+      if (e.key === 'f' || e.key === 'F') this._toggleFull();
     };
     document.addEventListener('keydown', this._onKey);
     this._fitInt = setInterval(() => {
@@ -571,6 +578,12 @@ class Component extends DCLogic {
       if (+b === n - 1) { try { v.currentTime = 0; } catch (e) {} v.play().catch(() => {}); }
       else v.pause();
     });
+  }
+  _toggleFull() {
+    const el = document.documentElement;
+    const on = document.fullscreenElement || document.webkitFullscreenElement;
+    if (on) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    else (el.requestFullscreen || el.webkitRequestFullscreen).call(el);
   }
   _pauseAll() { Object.values(this.vidRefs).forEach((r) => { if (r.current) r.current.pause(); }); }
 
