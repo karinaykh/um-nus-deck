@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#5848C4"/><circle cx="100" cy="100" r="46" fill="none" stroke="#fff" stroke-width="7"/><circle cx="100" cy="100" r="13" fill="#fff"/><circle cx="100" cy="54" r="9" fill="#fff"/><circle cx="146" cy="100" r="9" fill="#fff"/><circle cx="100" cy="146" r="9" fill="#fff"/><circle cx="54" cy="100" r="9" fill="#fff"/></svg></template>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Poppins',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#5848C4;text-decoration:none}a:hover{color:#2B4A9B;text-decoration:underline}
+@keyframes kfUp{from{opacity:0;transform:translateY(46px)}to{opacity:1;transform:none}}
+@keyframes kfFade{from{opacity:0}to{opacity:1}}
+@keyframes kfLeft{from{opacity:0;transform:translateX(-64px)}to{opacity:1;transform:none}}
+@keyframes kfRight{from{opacity:0;transform:translateX(64px)}to{opacity:1;transform:none}}
+@keyframes kfPop{0%{opacity:0;transform:scale(.72)}60%{opacity:1;transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
+@keyframes kfGrowX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes kfDraw{to{stroke-dashoffset:0}}
+@keyframes kfFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes kfTwinkle{0%,100%{opacity:.12;transform:scale(.75)}50%{opacity:.85;transform:scale(1.15)}}
+@keyframes kfSpin{to{transform:rotate(360deg)}}
+@keyframes kfBlink{50%{opacity:0}}
+section[data-deck-active] [data-a]{animation-duration:.9s;animation-timing-function:cubic-bezier(.22,1,.36,1);animation-fill-mode:both;animation-delay:var(--d,0s)}
+section[data-deck-active] [data-a="up"]{animation-name:kfUp}
+section[data-deck-active] [data-a="fade"]{animation-name:kfFade}
+section[data-deck-active] [data-a="left"]{animation-name:kfLeft}
+section[data-deck-active] [data-a="right"]{animation-name:kfRight}
+section[data-deck-active] [data-a="pop"]{animation-name:kfPop}
+section[data-deck-active] [data-a="growx"]{animation-name:kfGrowX;transform-origin:left}
+section[data-deck-active] svg [data-draw]{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:kfDraw .7s ease-out var(--d,0s) both}
+[data-hstep]{opacity:0;transform:translateY(30px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+[data-hstep][data-on="true"]{opacity:1;transform:none}
+[data-hrule]{transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+[data-hrule][data-on="true"]{transform:scaleX(1)}
+[data-pdim]{transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+[data-pdim][data-on="true"]{opacity:.22;transform:scale(.96)}
+[data-dimcards]{transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);transform-origin:top center}
+[data-dimcards][data-on="true"]{opacity:.26;transform:scale(.97)}
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+[data-reveal][data-on="true"]{opacity:1;transform:none}
+[data-shrink]{transition:transform .75s cubic-bezier(.22,1,.36,1),opacity .6s ease;transform-origin:top left}
+[data-shrink][data-on="true"]{transform:scale(.68);opacity:.38}
+[data-layer]{display:none}
+[data-layer][data-on="true"]{display:flex}
+[data-beat]{opacity:.4;background:#F7F6FC}
+[data-beat][data-on="true"]{opacity:1;background:#5848C4;border-color:#5848C4 !important}
+[data-beat][data-on="true"] [data-bt]{color:#fff !important}
+[data-beat][data-on="true"] [data-bn]{color:#fff !important;background:rgba(255,255,255,.2) !important}
+[data-beat][data-on="true"] [data-bs]{color:#4A4F6E !important}
+[data-beat][data-on="true"] [data-bn]{background:#EEEDFB !important;color:#4B3FCF !important}
+[data-dim]{transition:opacity .5s ease,transform .5s ease}
+[data-dim][data-on="true"]{opacity:.08;transform:translateY(14px) scale(.98)}
+[data-tst]{transition:opacity .5s ease,transform .5s ease}
+[data-tst][data-on="false"]{opacity:0;transform:translateY(24px);pointer-events:none}
+[data-tst][data-on="true"]{opacity:1;transform:none}
+[data-bnl]{transition:opacity .5s ease}
+[data-bnl][data-state="dim"]{opacity:.18}
+[data-bnl][data-state="hide"]{opacity:0}
+#vvip-timer[data-warn="true"]{background:#FDF9EC !important;border-color:#E3C86C !important}
+#vvip-timer[data-warn="true"] [data-tv]{color:#8A6D1B !important}
+@media print{[data-a],svg [data-draw]{animation:none !important;stroke-dashoffset:0 !important}#vvip-timer{display:none !important}}
+</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+<section data-label="Title" data-speaker-notes="0:00–0:20 · Good afternoon. One line before anything else: ScholAIstic is how NUS turns powerful AI into purposeful learning — built by our AI Centre for Educational Technologies. (Press T anytime for a 5-minute timer.)" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#0F1B4D 0%,#22337F 55%,#3D4FB5 100%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Poppins',sans-serif" data-om-slide-id="ef807189">
+  <span style="position:absolute;top:130px;left:280px;font-size:34px;color:#A5B4FC;animation:kfTwinkle 3.4s ease-in-out infinite">✦</span>
+  <span style="position:absolute;top:250px;right:340px;font-size:26px;color:#C7D2FE;animation:kfTwinkle 2.8s ease-in-out .8s infinite">✦</span>
+  <span style="position:absolute;bottom:260px;left:420px;font-size:24px;color:#818CF8;animation:kfTwinkle 3.8s ease-in-out 1.4s infinite">✦</span>
+  <span style="position:absolute;top:460px;right:200px;font-size:24px;color:#A5B4FC;animation:kfTwinkle 3.1s ease-in-out .4s infinite">✦</span>
+  <div data-a="pop" style="position:relative;width:250px;height:250px;margin-bottom:44px">
+    <div style="position:absolute;inset:-26px;border:1.5px dashed rgba(165,180,252,.45);border-radius:50%;animation:kfSpin 24s linear infinite">
+      <span style="position:absolute;top:-7px;left:50%;width:12px;height:12px;background:#A5B4FC;border-radius:50%"></span>
+    </div>
+    <div style="position:absolute;inset:0;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 70px rgba(6,10,40,.45)">
+      <img src="img/astronaut.png" alt="ScholAIstic astronaut" style="width:185px;height:185px;object-fit:contain;margin-top:10px">
+    </div>
+  </div>
+  <h1 data-a="up" style="--d:.15s;margin:0;font-size:112px;font-weight:600;letter-spacing:-1px">Schol<span style="color:#B7A9FF">AI</span>stic</h1>
+  <p data-a="up" style="--d:.3s;margin:20px 0 0;font-size:30px;font-weight:400;color:#A9B6E8">An Educator-Friendly Generative AI Platform for Learning</p>
+  <p data-a="up" style="--d:.45s;margin:42px 0 0;font-size:44px;font-style:italic;font-weight:500;color:#C9BDFF;white-space:nowrap">Turn powerful AI into purposeful learning</p>
+  <div data-a="fade" style="--d:.75s;position:absolute;left:90px;right:90px;bottom:56px;display:flex;justify-content:space-between;gap:60px;font-size:25px;white-space:nowrap;color:rgba(255,255,255,.72)">
+    <span>AI Centre for Educational Technologies (AICET) · National University of Singapore</span>
+    <span>UM–NUS Joint Academic Symposium · 29 July 2026</span>
+  </div>
+</section>
+
+<section id="hook" data-label="Hook" data-speaker-notes="0:20–0:50 · Three clicks on this slide. [on entry] “Anyone can build a chatbot.” — pause. [click 1 → big line] “The more important question is whether that chatbot creates meaningful learning.” — pause. [click 2 → pedagogy block] “At NUS, we begin with the learning problem and the capabilities students need to develop. We then design the AI around that pedagogy.” [click 3 → next slide]" style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;justify-content:center;padding:0 170px;font-family:'Poppins',sans-serif" data-om-slide-id="8c8c11f0">
+  <img src="img/glow-b.png" alt="" style="position:absolute;top:-90px;right:-70px;width:520px;opacity:.055;animation:kfFloat 7s ease-in-out infinite">
+  <img src="img/glow-a.png" alt="" style="position:absolute;bottom:-120px;left:-80px;width:460px;opacity:.045;animation:kfFloat 8s ease-in-out 1s infinite">
+  <h2 data-a="up" style="margin:0;font-size:58px;font-weight:500;line-height:1.2;color:#8B87B8;letter-spacing:-.5px">Anyone can build a chatbot.</h2>
+  <h1 data-hstep="1" data-on="{{ hook1 }}" style="margin: 26px 0 0; font-size: 100px; font-weight: 600; line-height: 1.1; letter-spacing: -1.5px; max-width: 1620px; text-wrap: balance">The real challenge is designing AI that <span style="color:#5848C4">helps students learn</span>.</h1>
+  <div data-hrule="" data-on="{{ hook2 }}" style="width:180px;height:5px;background:#5848C4;border-radius:3px;margin:58px 0 0"></div>
+  <div data-hstep="2" data-on="{{ hook2 }}" style="margin-top:34px">
+    <p style="margin:0;font-size:28px;font-weight:600;letter-spacing:3px;color:#5848C4">AT NUS, PEDAGOGY COMES FIRST.</p>
+    <p style="margin:20px 0 0;font-size:42px;font-weight:500;color:#4A4F6E;line-height:1.42;max-width:1600px;text-wrap:pretty">We begin with what students need to <span style="font-weight: 600; color: rgb(89, 72, 196);">learn and practise</span>, <br>then design the AI around that.</p>
+  </div>
+</section>
+
+<section id="platform" data-label="What is ScholAIstic" data-speaker-notes="0:50–1:40 · FOUR CLICKS. [on entry] Educators design the learning. PURPOSE — what students should practise or develop. CHALLENGE — how the AI reveals, withholds or responds. EVIDENCE — what success looks like and what educators need to see. No coding required. [CLICK] ScholAIstic turns that intent into a structured experience. [CLICK] Students learn by doing. PRACTISE — apply skills in a structured task. REASON — explain decisions and work through their thinking. FEEDBACK — guidance based on their actual interaction. [CLICK] The sides recede — land the line: every interaction becomes visible to educators. · Pedagogy first. Educators define the learning: what students should practise, how the AI reveals or withholds, and what evidence of success looks like — no coding. ScholAIstic turns that intent into a structured AI experience: AI roles, knowledge, modalities, evaluation. Students learn by doing — practise, reason, receive feedback — and every interaction becomes visible to the educator." style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;padding:46px 90px;font-family:'Poppins',sans-serif" data-om-slide-id="5336c6f2">
+  <p data-a="fade" style="margin:0;font-size:27px;font-weight:600;letter-spacing:4px;color:#8B87B8">PEDAGOGY FIRST</p>
+  <h2 data-a="up" style="--d:.1s;margin:14px 0 0;font-size:54px;font-weight:600;letter-spacing:-.5px;line-height:1.18">Educators <span style="color:#5848C4">design the learning</span>.<br>ScholAIstic enables the experience.</h2>
+  <div style="flex:1;min-height:0;display:grid;grid-template-columns:1fr 150px 500px 150px 1fr;align-items:stretch;gap:14px;margin-top:6px;padding-bottom:96px">
+    <div data-a="left" style="display:flex;flex-direction:column;justify-content:center">
+      <div data-pdim="1" data-on="{{ p3 }}" style="display:grid;grid-template-rows:300px auto auto;gap:26px">
+        <img src="img/design.png" alt="Educator designing an activity in ScholAIstic" style="width:100%;height:300px;object-fit:contain;object-position:center bottom">
+        <p style="margin:0;font-size:28px;font-weight:600;letter-spacing:2.5px;color:#5848C4">EDUCATORS DECIDE</p>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">What students practise</p>
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">How the AI responds</p>
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">What counts as success</p>
+        </div>
+      </div>
+    </div>
+    <div data-reveal="1" data-on="{{ pMid }}" style="display:flex;flex-direction:column;justify-content:center">
+      <div data-pdim="1" data-on="{{ p3 }}" style="display:flex;flex-direction:column;gap:16px">
+        <div><p style="margin:0 0 6px;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">learning design</p>
+        <svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:.9s" d="M4 15 H128 M128 6 l16 9 -16 9" fill="none" stroke="#5848C4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div><svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:1.05s" d="M146 15 H22 M22 6 l-16 9 16 9" fill="none" stroke="#8B80E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <p style="margin:6px 0 0;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">visibility &amp; insights</p></div>
+      </div>
+    </div>
+    <div data-reveal="1" data-on="{{ pMid }}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;align-self:center">
+      <div style="position:relative;width:340px;margin:44px 0 6px">
+        <img src="img/orchestration.png" alt="ScholAIstic orchestration" style="width:100%;display:block">
+        <p data-a="fade" style="--d:1.2s;position:absolute;top:-42px;left:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">AI models</p>
+        <p data-a="fade" style="--d:1.3s;position:absolute;top:-42px;right:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">Modalities</p>
+        <p data-a="fade" style="--d:1.5s;position:absolute;bottom:-40px;left:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">Analytics</p>
+        <p data-a="fade" style="--d:1.4s;position:absolute;bottom:-40px;right:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">Knowledge</p>
+      </div>
+      <div style="text-align:center;margin-top:38px">
+        <p style="margin:0;font-size:28px;font-weight:600;letter-spacing:2.5px;color:#5848C4">SCHOLAISTIC ENABLES</p>
+        <p style="margin:12px 0 0;font-size:30px;font-weight:400;line-height:1.36;color:#4A4F6E;text-wrap:pretty">Turns pedagogical intent into a structured AI learning experience.</p>
+      </div>
+    </div>
+    <div data-reveal="1" data-on="{{ pRight }}" style="display:flex;flex-direction:column;justify-content:center">
+      <div data-pdim="1" data-on="{{ p3 }}" style="display:flex;flex-direction:column;gap:16px">
+        <div><p style="margin:0 0 6px;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">practice &amp; feedback</p>
+        <svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:1.2s" d="M4 15 H128 M128 6 l16 9 -16 9" fill="none" stroke="#5848C4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div><svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:1.35s" d="M146 15 H22 M22 6 l-16 9 16 9" fill="none" stroke="#8B80E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <p style="margin:6px 0 0;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">interaction evidence</p></div>
+      </div>
+    </div>
+    <div data-reveal="1" data-on="{{ pRight }}" style="display:flex;flex-direction:column;justify-content:center">
+      <div data-pdim="1" data-on="{{ p3 }}" style="display:grid;grid-template-rows:300px auto auto;gap:26px">
+        <img src="img/practice.png" alt="Student practising with an AI patient" style="width:100%;height:300px;object-fit:contain;object-position:center bottom">
+        <p style="margin:0;font-size:28px;font-weight:600;letter-spacing:2.5px;color:#5848C4">STUDENTS PRACTISE</p>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">Work through the task</p>
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">Explain their reasoning</p>
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">Act on the feedback</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-reveal="1" data-on="{{ p3 }}" style="position:absolute;left:90px;right:90px;bottom:56px;justify-content:center">
+    <p style="margin:0;font-size:46px;font-weight:600;letter-spacing:-.4px;color:#16225C;text-align:center">Every interaction becomes <span style="color:#5848C4">visible to educators</span>.</p>
+  </div>
+</section>
+
+<section id="demo" data-label="Pedagogy in practice" data-speaker-notes="2:10–3:10 · [THE TEACHING CHALLENGE] “Clinical skills have to be practised individually — but with a cohort this size, faculty cannot observe every encounter.” [CLICK → OVERVIEW ~10s] “At NUS Medicine, students do more than interview an AI patient. They move through a complete learning cycle. They gather the history, synthesise what they have learned, reason through the case, and receive feedback on the full interaction.” Do not explain each box. Then: “Let me show you how the design works.” [CLICK → 01, 8–10s] “The student begins by interviewing the AI patient. Relevant information is not presented upfront. It emerges through the questions the student chooses to ask.” [CLICK → 02, 20–25s · most time here] “The student then presents a clinical summary to the AI consultant. Importantly, the consultant works only with the information the student has gathered and included in that summary.” As it probes: “The consultant guides the student to form a provisional diagnosis, justify it and consider alternatives. What the student misses during history-taking now affects the reasoning that follows.” [CLICK → 03, 8–10s] “Finally, the full interaction is evaluated against criteria defined by the faculty, covering both history-taking and clinical reasoning.”" style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;padding:46px 90px 42px;font-family:'Poppins',sans-serif" data-om-slide-id="a2239552">
+  <div data-a="up" style="display:flex;align-items:baseline;justify-content:space-between;gap:40px">
+    <p style="margin:0;font-size:27px;font-weight:600;letter-spacing:4px;color:#5848C4">LEARNING DESIGN IN ACTION</p>
+    <p style="margin:0;font-size:26px;color:#6C6F94;white-space:nowrap">NUS Medicine &nbsp;|&nbsp; AI Patient Simulation</p>
+  </div>
+
+  <div style="flex:1;min-height:0;position:relative;margin-top:18px">
+    <div data-layer="q" data-on="{{ questionOn }}" style="position:absolute;inset:0;flex-direction:column;justify-content:center">
+      <p style="margin:0;font-size:30px;font-weight:600;letter-spacing:3.5px;color:#8B87B8;animation:kfFade .7s .1s both">THE TEACHING CHALLENGE</p>
+      <p style="margin:36px 0 0;max-width:1620px;font-size:76px;font-weight:600;line-height:1.16;letter-spacing:-1.2px;color:#16225C;text-wrap:pretty;animation:kfFade .8s .35s both">How can <span style="color:#5848C4">every student</span> practise history-taking and clinical reasoning when faculty cannot observe every encounter?</p>
+    </div>
+    <div data-layer="ov" data-on="{{ ovOn }}" style="position:absolute;inset:0;flex-direction:column;justify-content:center">
+      <h2 data-a="up" style="--d:.1s;margin:0 0 10px;font-size:62px;font-weight:600;letter-spacing:-1px;line-height:1.12">From history-taking to <span style="color:#5848C4">clinical reasoning</span></h2>
+      <div style="display:grid;grid-template-columns:1fr 84px 1fr 84px 1fr;align-items:stretch;margin:38px 0 0">
+        <div style="display:grid;grid-template-rows:auto 1fr;gap:18px;background:#F4F3FC;border:1px solid #E4E1F6;border-radius:26px;padding:38px 36px;animation:kfUp .7s .15s both">
+          <p style="margin:0;font-size:30px;font-weight:600;letter-spacing:3px;color:#5848C4">01 &nbsp;AI PATIENT</p>
+          <p style="margin:0;min-height:126px;font-size:54px;font-weight:600;line-height:1.12;color:#16225C;text-wrap:pretty">Gather the history</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center"><span style="font-size:52px;font-weight:300;color:#8B80E8;line-height:1">→</span></div>
+        <div style="display:grid;grid-template-rows:auto 1fr;gap:18px;background:#F4F3FC;border:1px solid #E4E1F6;border-radius:26px;padding:38px 36px;animation:kfUp .7s .3s both">
+          <p style="margin:0;font-size:30px;font-weight:600;letter-spacing:3px;color:#5848C4">02 &nbsp;AI CONSULTANT</p>
+          <p style="margin:0;min-height:126px;font-size:54px;font-weight:600;line-height:1.12;color:#16225C;text-wrap:pretty">Reason through the case</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center"><span style="font-size:52px;font-weight:300;color:#8B80E8;line-height:1">→</span></div>
+        <div style="display:grid;grid-template-rows:auto 1fr;gap:18px;background:#F4F3FC;border:1px solid #E4E1F6;border-radius:26px;padding:38px 36px;animation:kfUp .7s .45s both">
+          <p style="margin:0;font-size:30px;font-weight:600;letter-spacing:3px;color:#5848C4">03 &nbsp;FEEDBACK</p>
+          <p style="margin:0;min-height:126px;font-size:54px;font-weight:600;line-height:1.12;color:#16225C;text-wrap:pretty">Receive personalised feedback</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-layer="pl" data-on="{{ playOn }}" style="position:absolute;inset:0;flex-direction:column;gap:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+        <div data-beat="1" data-on="{{ beat1Active }}" role="button" onClick="{{ onBeat1 }}" style="display:flex;align-items:center;gap:18px;border:1px solid #E4E1F6;border-radius:18px;padding:14px 24px;cursor:pointer;transition:opacity .35s,background .35s,border-color .35s">
+          <span data-bn="1" style="flex:none;font-size:28px;font-weight:600;color:#5848C4;background:rgba(88,72,196,.1);border-radius:12px;padding:4px 14px">01</span>
+          <p data-bt="1" style="margin:0;font-size:32px;font-weight:600;line-height:1.2;color:#16225C">Gather the history</p>
+        </div>
+        <div data-beat="2" data-on="{{ beat2Active }}" role="button" onClick="{{ onBeat2 }}" style="display:flex;align-items:center;gap:18px;border:1px solid #E4E1F6;border-radius:18px;padding:14px 24px;cursor:pointer;transition:opacity .35s,background .35s,border-color .35s">
+          <span data-bn="1" style="flex:none;font-size:28px;font-weight:600;color:#5848C4;background:rgba(88,72,196,.1);border-radius:12px;padding:4px 14px">02</span>
+          <p data-bt="1" style="margin:0;font-size:32px;font-weight:600;line-height:1.2;color:#16225C">Reason through the case</p>
+        </div>
+        <div data-beat="3" data-on="{{ beat3Active }}" role="button" onClick="{{ onBeat3 }}" style="display:flex;align-items:center;gap:18px;border:1px solid #E4E1F6;border-radius:18px;padding:14px 24px;cursor:pointer;transition:opacity .35s,background .35s,border-color .35s">
+          <span data-bn="1" style="flex:none;font-size:28px;font-weight:600;color:#5848C4;background:rgba(88,72,196,.1);border-radius:12px;padding:4px 14px">03</span>
+          <p data-bt="1" style="margin:0;font-size:32px;font-weight:600;line-height:1.2;color:#16225C">Receive personalised feedback</p>
+        </div>
+      </div>
+      <div style="flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;border-radius:22px;overflow:hidden;background:#FDFDFF;border:1px solid #E4E1F6">
+        <div data-layer="v1" data-on="{{ beat1Active }}" style="position:absolute;inset:0;align-items:center;justify-content:center">
+          <sc-if value="{{ hasVid1 }}" hint-placeholder-val="{{ false }}"><video ref="{{ vidRef1 }}" controls="{{ true }}" preload="auto" playsInline="{{ true }}" style="width:100%;height:100%;object-fit:contain;display:block"></video></sc-if>
+          <sc-if value="{{ noVid1 }}" hint-placeholder-val="{{ true }}"><div role="button" onClick="{{ onPick1 }}" onDrop="{{ onDrop1 }}" onDragOver="{{ onDragOver }}" style="width:64%;text-align:center;border:2.5px dashed #C9C2EC;border-radius:22px;padding:60px 44px;cursor:pointer" style-hover="border-color:#5848C4"><p style="margin:0;font-size:34px;font-weight:500;color:#16225C">Screen recording 1 — interviewing the AI patient</p><p style="margin:14px 0 0;font-size:27px;color:#6C6F94">Drop an MP4 / WebM here, or click to browse</p></div></sc-if>
+        </div>
+        <div data-layer="v2" data-on="{{ beat2Active }}" style="position:absolute;inset:0;align-items:center;justify-content:center">
+          <sc-if value="{{ hasVid2 }}" hint-placeholder-val="{{ false }}"><video ref="{{ vidRef2 }}" controls="{{ true }}" preload="auto" playsInline="{{ true }}" style="width:100%;height:100%;object-fit:contain;display:block"></video></sc-if>
+          <sc-if value="{{ noVid2 }}" hint-placeholder-val="{{ true }}"><div role="button" onClick="{{ onPick2 }}" onDrop="{{ onDrop2 }}" onDragOver="{{ onDragOver }}" style="width:64%;text-align:center;border:2.5px dashed #C9C2EC;border-radius:22px;padding:60px 44px;cursor:pointer" style-hover="border-color:#5848C4"><p style="margin:0;font-size:34px;font-weight:500;color:#16225C">Screen recording 2 — presenting to the AI consultant</p><p style="margin:14px 0 0;font-size:27px;color:#6C6F94">Drop an MP4 / WebM here, or click to browse</p></div></sc-if>
+        </div>
+        <div data-layer="v3" data-on="{{ beat3Active }}" style="position:absolute;inset:0;align-items:center;justify-content:center">
+          <sc-if value="{{ hasVid3 }}" hint-placeholder-val="{{ false }}"><video ref="{{ vidRef3 }}" controls="{{ true }}" preload="auto" playsInline="{{ true }}" style="width:100%;height:100%;object-fit:contain;display:block"></video></sc-if>
+          <sc-if value="{{ noVid3 }}" hint-placeholder-val="{{ true }}"><div role="button" onClick="{{ onPick3 }}" onDrop="{{ onDrop3 }}" onDragOver="{{ onDragOver }}" style="width:64%;text-align:center;border:2.5px dashed #C9C2EC;border-radius:22px;padding:60px 44px;cursor:pointer" style-hover="border-color:#5848C4"><p style="margin:0;font-size:34px;font-weight:500;color:#16225C">Screen recording 3 — personalised feedback</p><p style="margin:14px 0 0;font-size:27px;color:#6C6F94">Drop an MP4 / WebM here, or click to browse</p></div></sc-if>
+        </div>
+        <sc-if value="{{ hasActiveVid }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;right:22px;top:18px;display:flex;gap:26px;background:rgba(253,253,255,.92);border-radius:12px;padding:6px 14px">
+            <span role="button" onClick="{{ onReplaceActive }}" style="font-size:24px;color:#8B87B8;cursor:pointer" style-hover="color:#5848C4">Replace recording</span>
+            <span role="button" onClick="{{ onRemoveActive }}" style="font-size:24px;color:#8B87B8;cursor:pointer" style-hover="color:#5848C4">Remove</span>
+          </div>
+        </sc-if>
+      </div>
+      <div style="flex:none;min-height:62px">
+        <div data-layer="c1" data-on="{{ step1 }}" style="flex-direction:column">
+          <p style="margin:0;font-size:36px;font-weight:600;line-height:1.28;color:#16225C;animation:kfFade .7s .1s both">The patient reveals information only in response to the questions students ask.</p>
+        </div>
+        <div data-layer="c2" data-on="{{ step2 }}" style="flex-direction:column">
+          <p style="margin:0;font-size:36px;font-weight:600;line-height:1.28;color:#16225C;animation:kfFade .7s .15s both">The AI consultant prompts students to explain their reasoning and consider alternatives.</p>
+        </div>
+        <div data-layer="c3" data-on="{{ step3 }}" style="flex-direction:column">
+          <p style="margin:0;font-size:36px;font-weight:600;line-height:1.28;color:#16225C;animation:kfFade .7s .1s both">The AI evaluates the full interaction against a faculty-designed rubric.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input ref="{{ fileRef }}" type="file" accept="video/*" onChange="{{ onFile }}" style="display:none">
+</section>
+
+<section id="coach" data-label="Leadership coaching" data-speaker-notes="[THE TEACHING CHALLENGE ~10s] “Leadership requires reflection, but that reflection often happens after the conversation is over. The educators asked how reflection could shape what students do next, while the interaction was still unfolding.” [CLICK → THE LEARNING DESIGN] Students coach an AI employee through a difficult conversation, pause mid-conversation to examine what is happening and decide what to try next, then return and apply the revised approach. Reflection is placed where it can shape the learner’s next action — designed by NUS educators, enabled through ScholAIstic." style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;padding:46px 90px 42px;font-family:'Poppins',sans-serif" data-om-slide-id="bb763fee">
+  <div data-a="up" style="display:flex;align-items:baseline;justify-content:space-between;gap:40px">
+    <p style="margin:0;font-size:27px;font-weight:600;letter-spacing:4px;color:#5848C4">LEARNING DESIGN IN ACTION</p>
+    <p style="margin:0;font-size:26px;color:#6C6F94;white-space:nowrap">NUS Computing &nbsp;|&nbsp; Leadership Coaching Simulation</p>
+  </div>
+
+  <div style="flex:1;min-height:0;position:relative;margin-top:18px">
+    <div data-layer="cq" data-on="{{ coach0 }}" style="position:absolute;inset:0;flex-direction:column;justify-content:center">
+      <p style="margin:0;font-size:30px;font-weight:600;letter-spacing:3.5px;color:#8B87B8;animation:kfFade .7s .1s both">THE TEACHING CHALLENGE</p>
+      <p style="margin:36px 0 0;max-width:1600px;font-size:76px;font-weight:600;line-height:1.16;letter-spacing:-1.2px;color:#16225C;text-wrap:pretty;animation:kfFade .8s .35s both">How can students <span style="color:#5848C4">pause, reflect and adapt</span> while a difficult conversation is still unfolding?</p>
+      <p style="margin:40px 0 0;max-width:1400px;font-size:36px;font-weight:400;line-height:1.4;color:#4A4F6E;text-wrap:pretty;animation:kfFade .8s .9s both">Leadership requires reflection, but reflection often happens only after the moment has passed.</p>
+    </div>
+
+    <div data-layer="cd" data-on="{{ coach1 }}" style="position:absolute;inset:0;flex-direction:column;justify-content:center;animation:kfFade .45s both">
+      <h2 style="margin:0 0 10px;font-size:62px;font-weight:600;letter-spacing:-1px;line-height:1.12;animation:kfUp .6s .05s both">Reflection becomes <span style="color:#5848C4">part of the experience</span></h2>
+      <div style="display:grid;grid-template-columns:1fr 84px 1fr 84px 1fr;align-items:stretch;margin:38px 0 0">
+        <div style="display:grid;grid-template-rows:auto 1fr;gap:22px;background:#F4F3FC;border:1px solid #E4E1F6;border-radius:26px;padding:40px 36px;animation:kfUp .6s .28s both">
+          <p style="margin:0;font-size:30px;font-weight:600;letter-spacing:3px;color:#5848C4">01 &nbsp;PRACTISE</p>
+          <p style="margin:0;font-size:40px;font-weight:500;line-height:1.24;color:#16225C;text-wrap:pretty">Coach an AI employee through a difficult conversation.</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;animation:kfFade .5s .44s both"><span style="font-size:52px;font-weight:300;color:#8B80E8;line-height:1">→</span></div>
+        <div style="display:grid;grid-template-rows:auto 1fr;gap:22px;background:#F4F3FC;border:1px solid #E4E1F6;border-radius:26px;padding:40px 36px;animation:kfUp .6s .52s both">
+          <p style="margin:0;font-size:30px;font-weight:600;letter-spacing:3px;color:#5848C4">02 &nbsp;PAUSE AND REFLECT</p>
+          <p style="margin:0;font-size:40px;font-weight:500;line-height:1.24;color:#16225C;text-wrap:pretty">Step back, examine the interaction and decide what to try next.</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;animation:kfFade .5s .68s both"><span style="font-size:52px;font-weight:300;color:#8B80E8;line-height:1">→</span></div>
+        <div style="display:grid;grid-template-rows:auto 1fr;gap:22px;background:#F4F3FC;border:1px solid #E4E1F6;border-radius:26px;padding:40px 36px;animation:kfUp .6s .76s both">
+          <p style="margin:0;font-size:30px;font-weight:600;letter-spacing:3px;color:#5848C4">03 &nbsp;RETURN AND APPLY</p>
+          <p style="margin:0;font-size:40px;font-weight:500;line-height:1.24;color:#16225C;text-wrap:pretty">Resume the conversation with a revised approach.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="numbers" data-label="Across NUS" data-speaker-notes="3:10—3:50 · Since 2024, educators across NUS have used ScholAIstic to design AI-enabled learning experiences around specific teaching and learning needs — 3,600-plus students, 30-plus courses, 14 faculties and schools. Law cross-examines an AI witness, Dentistry interprets radiographs with an AI tutor, Computing coaches an AI employee. CLICK: and this travels beyond NUS — collaborations with schools, universities and public-sector agencies in Singapore and internationally, to share pedagogy-first AI learning design." style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;padding:46px 100px 42px;font-family:'Poppins',sans-serif" data-om-slide-id="d6128b15">
+  <p data-a="fade" style="margin:0;font-size:27px;font-weight:600;letter-spacing:4px;color:#5848C4">ACROSS NUS AND BEYOND</p>
+
+  <div style="flex:1;min-height:0;position:relative;margin-top:16px">
+    <div data-shrink="1" data-on="{{ growth2 }}" style="display:flex;flex-direction:column">
+      <h2 style="margin:0;font-size:62px;font-weight:600;letter-spacing:-1px;line-height:1.14">Thoughtful AI learning design <span style="color:#5848C4">across NUS</span></h2>
+      <p style="margin:24px 0 0;max-width:1560px;font-size:36px;font-weight:400;line-height:1.4;color:#4A4F6E;text-wrap:pretty">Different learning goals require different learning designs.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:40px 0 0">
+        <div style="background:#F4F3FC;border:1px solid #E4E1F6;border-radius:22px;padding:30px 34px">
+          <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">NUS LAW</p>
+          <p style="margin:12px 0 0;font-size:34px;font-weight:600;line-height:1.28;color:#16225C;text-wrap:pretty">Cross-examine an AI witness</p>
+        </div>
+        <div style="background:#F4F3FC;border:1px solid #E4E1F6;border-radius:22px;padding:30px 34px">
+          <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">NUS DENTISTRY</p>
+          <p style="margin:12px 0 0;font-size:34px;font-weight:600;line-height:1.28;color:#16225C;text-wrap:pretty">Interpret radiographs with an AI tutor</p>
+        </div>
+        <div style="background:#F4F3FC;border:1px solid #E4E1F6;border-radius:22px;padding:30px 34px">
+          <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">NUS SOCIAL WORK</p>
+          <p style="margin:12px 0 0;font-size:34px;font-weight:600;line-height:1.28;color:#16225C;text-wrap:pretty">Build rapport with an AI client</p>
+        </div>
+      </div>
+      <div data-reveal="1" data-on="{{ growthAny }}" style="display:flex;flex-direction:column">
+        <p style="margin:40px 0 0;max-width:1620px;font-size:34px;font-weight:400;line-height:1.42;color:#4A4F6E;text-wrap:pretty">Since 2024, NUS educators have used ScholAIstic to create AI-enabled learning experiences around distinct teaching and learning needs.</p>
+        <div style="display:grid;grid-template-columns:auto 84px auto 84px auto;justify-content:start;align-items:start;margin:40px 0 0">
+          <div>
+            <p style="margin:0;font-size:104px;font-weight:700;color:#5848C4;line-height:1;letter-spacing:-3px">3,600+</p>
+            <p style="margin:14px 0 0;font-size:33px;color:#3A3F5C;white-space:nowrap">students</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;padding-top:24px"><span style="font-size:44px;color:#C3C0D8;line-height:1">·</span></div>
+          <div>
+            <p style="margin:0;font-size:104px;font-weight:700;color:#5848C4;line-height:1;letter-spacing:-3px;">30+</p>
+            <p style="margin:14px 0 0;font-size:33px;color:#3A3F5C;white-space:nowrap">courses</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;padding-top:24px"><span style="font-size:44px;color:#C3C0D8;line-height:1">·</span></div>
+          <div>
+            <p style="margin:0;font-size:104px;font-weight:700;color:#5848C4;line-height:1;letter-spacing:-3px;">14</p>
+            <p style="margin:14px 0 0;font-size:33px;color:#3A3F5C;white-space:nowrap">faculties and schools</p>
+          </div>
+        </div>
+        <p style="margin:36px 0 0;font-size:36px;font-weight:500;color:#5848C4">Designed by educators. Enabled through ScholAIstic.</p>
+      </div>
+    </div>
+
+    <div data-layer="g1" data-on="{{ growth2 }}" style="position:absolute;left:0;right:0;top:65%;flex-direction:column">
+      <p style="margin:0;font-size:30px;font-weight:600;letter-spacing:6px;color:#5848C4;animation:kfFade .7s .35s both">BEYOND NUS</p>
+      <p style="margin:26px 0 0;max-width:1680px;font-size:58px;font-weight:600;line-height:1.22;letter-spacing:-.8px;color:#16225C;text-wrap:pretty;animation:kfUp .8s .5s both">Collaborations with <span style="color:#5848C4">schools, universities and public-sector agencies</span> in Singapore and internationally, to share pedagogy-first AI learning design.</p>
+    </div>
+  </div>
+</section>
+
+<section id="next" data-label="What's next" data-speaker-notes="4:20—4:50 · FIVE CLICKS — one per capability, then the closing line. · We continue to build with educators, extending the kinds of learning experiences they can create. Multimodal: practise in the mode the skill requires. Multi-user: students, educators and AI roles in the same live activity. Multi-agent: connect multiple AI roles, stages and feedback in one activity. Learning analytics: interaction data becomes teaching insight. Close: technology expands the possibilities — pedagogy gives it purpose.“The technology will continue to expand what educators can create. But the principle guiding our work remains the same." style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;padding:50px 100px;font-family:'Poppins',sans-serif" data-om-slide-id="5e7d09a2">
+  <p data-a="fade" style="margin:0;font-size:26px;font-weight:600;letter-spacing:4px;color:#5848C4">CONTINUING TO BUILD WITH EDUCATORS</p>
+  <h2 data-a="up" style="--d:.1s;margin:12px 0 0;font-size:56px;font-weight:600;letter-spacing:-.8px;line-height:1.14;max-width:1500px">Unlocking new possibilities for teaching and learning.</h2>
+  <p data-a="up" style="--d:.2s;margin:16px 0 0;font-size:30px;color:#4A4F6E;line-height:1.45;max-width:1620px">We continue to build with educators, extending the kinds of learning experiences they can create.</p>
+  <div data-dimcards="1" data-on="{{ n5 }}" style="flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:20px;margin:20px 0 0">
+    <div data-reveal="1" data-on="{{ n1 }}" style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;background:#F4F3FC;border:1px solid #E9E6F7;border-radius:26px;padding:24px 30px">
+      <div>
+        <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:3px;color:#5848C4">MULTIMODAL</p>
+        <p style="margin:10px 0 0;font-size:38px;font-weight:600;line-height:1.16;letter-spacing:-.4px;color:#16225C;text-wrap:pretty">Practise in the mode the skill requires</p>
+        <p style="margin:12px 0 0;font-size:28px;font-weight:400;line-height:1.36;color:#4A4F6E;text-wrap:pretty">Voice, images and documents bring learning closer to real professional contexts.</p>
+      </div>
+      <svg width="150" height="150" viewBox="0 0 100 100" fill="none" stroke="#5848C4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="12" y="22" width="14" height="26" rx="7"></rect><path d="M6 44a13 13 0 0 0 26 0M19 58v9M11 67h16"></path><rect x="38" y="26" width="30" height="28" rx="4"></rect><circle cx="46" cy="35" r="3"></circle><path d="M39 50l8-9 5 5 4-4 11 12"></path><rect x="72" y="22" width="22" height="34" rx="3"></rect><path d="M77 31h12M77 39h12M77 47h8"></path></svg>
+    </div>
+    <div data-reveal="1" data-on="{{ n2 }}" style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;background:#F4F3FC;border:1px solid #E9E6F7;border-radius:26px;padding:24px 30px">
+      <div>
+        <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:3px;color:#5848C4">MULTI-USER</p>
+        <p style="margin:10px 0 0;font-size:38px;font-weight:600;line-height:1.16;letter-spacing:-.4px;color:#16225C;text-wrap:pretty">Learn with people and AI together</p>
+        <p style="margin:12px 0 0;font-size:28px;font-weight:400;line-height:1.36;color:#4A4F6E;text-wrap:pretty">Students, educators and AI roles can participate in the same live activity.</p>
+      </div>
+      <svg width="150" height="150" viewBox="0 0 100 100" fill="none" stroke="#5848C4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="50" cy="28" r="11"></circle><path d="M33 58a17 17 0 0 1 34 0"></path><circle cx="20" cy="38" r="8"></circle><path d="M8 62a12 12 0 0 1 24 0"></path><circle cx="80" cy="38" r="8"></circle><path d="M68 62a12 12 0 0 1 24 0"></path><path d="M12 72q38 22 76 0" stroke-dasharray="6 7"></path></svg>
+    </div>
+    <div data-reveal="1" data-on="{{ n3 }}" style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;background:#F4F3FC;border:1px solid #E9E6F7;border-radius:26px;padding:24px 30px">
+      <div>
+        <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:3px;color:#5848C4">MULTI-AGENT</p>
+        <p style="margin:10px 0 0;font-size:38px;font-weight:600;line-height:1.16;letter-spacing:-.4px;color:#16225C;text-wrap:pretty">Design richer, multi-role experiences</p>
+        <p style="margin:12px 0 0;font-size:28px;font-weight:400;line-height:1.36;color:#4A4F6E;text-wrap:pretty">Connect multiple AI roles, stages and feedback within one activity.</p>
+      </div>
+      <svg width="150" height="150" viewBox="0 0 100 100" fill="none" stroke="#5848C4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="50" cy="50" r="11"></circle><circle cx="20" cy="24" r="8"></circle><circle cx="20" cy="76" r="8"></circle><circle cx="80" cy="78" r="8"></circle><rect x="72" y="26" width="17" height="17" rx="3"></rect><path d="M26 30l15 13M26 70l15-13"></path><path d="M59 44l13-10M59 58l14 13" stroke-dasharray="5 6"></path></svg>
+    </div>
+    <div data-reveal="1" data-on="{{ n4 }}" style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;background:#F4F3FC;border:1px solid #E9E6F7;border-radius:26px;padding:24px 30px">
+      <div>
+        <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:3px;color:#5848C4">LEARNING ANALYTICS</p>
+        <p style="margin:10px 0 0;font-size:38px;font-weight:600;line-height:1.16;letter-spacing:-.4px;color:#16225C;text-wrap:pretty">Turn interaction data into teaching insight</p>
+        <p style="margin:12px 0 0;font-size:28px;font-weight:400;line-height:1.36;color:#4A4F6E;text-wrap:pretty">See learning patterns, identify difficulties and target support more effectively.</p>
+      </div>
+      <svg width="150" height="150" viewBox="0 0 100 100" fill="none" stroke="#5848C4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M10 84h84"></path><rect x="16" y="60" width="13" height="24" rx="2"></rect><rect x="35" y="48" width="13" height="36" rx="2"></rect><rect x="54" y="54" width="13" height="30" rx="2"></rect><rect x="73" y="34" width="13" height="50" rx="2"></rect><path d="M22 42l20-12 18 8 22-20"></path><circle cx="22" cy="42" r="3.6"></circle><circle cx="42" cy="30" r="3.6"></circle><circle cx="60" cy="38" r="3.6"></circle><circle cx="82" cy="18" r="3.6"></circle></svg>
+    </div>
+  </div>
+  <div data-reveal="1" data-on="{{ n5 }}" style="display:flex;align-items:center;gap:30px;margin:22px 0 0;background:#F1EEFB;border:1px solid #D9D1F5;border-radius:24px;padding:28px 40px;box-shadow:0 22px 60px rgba(43,57,144,.12)">
+    <span style="flex:none;width:66px;height:66px;border:2px solid #5848C4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;color:#5848C4">✦</span>
+    <p style="margin:0;font-size:44px;font-weight:400;line-height:1.3;color:#8B87B8;text-wrap:pretty">Technology opens new possibilities.<br><span style="font-weight:600;color:#5848C4">Educators turn them into purposeful learning.</span></p>
+  </div>
+</section>
+
+<section id="first" data-label="Pedagogy first" data-speaker-notes="3:50—4:20 · TWO BEATS — say the first line, pause, then CLICK for the second. Land the principle. What students need to learn and practise comes first — the AI is designed around that. Pause before moving to what is next." style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;justify-content:center;padding:0 130px;font-family:'Poppins',sans-serif" data-om-slide-id="d3185c00">
+  <p data-a="fade" style="margin:0;font-size:30px;font-weight:600;letter-spacing:6px;color:#5848C4">PEDAGOGY FIRST</p>
+  <h2 data-a="up" style="--d:.25s;margin:48px 0 0;max-width:1560px;font-size:82px;font-weight:600;letter-spacing:-1.6px;line-height:1.18;text-wrap:pretty">What <span style="color:#5848C4">students</span> need to learn and practise <span style="color:#5848C4">comes first</span>.</h2>
+  <h2 data-reveal="1" data-on="{{ f1 }}" style="margin:22px 0 0;max-width:1560px;font-size:82px;font-weight:600;letter-spacing:-1.6px;line-height:1.18;text-wrap:pretty">The AI is designed around that.</h2>
+</section>
+
+<section data-label="Close" data-speaker-notes="4:50–5:00 · Close on the tagline — recognised by OpenGov Asia this year — then invite them to the booth: come take Mr Rahim's history yourself. Thank you." style="position:relative;overflow:hidden;background:linear-gradient(135deg,#0F1B4D 0%,#22337F 55%,#3D4FB5 100%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Poppins',sans-serif" data-om-slide-id="cbb0290c">
+  <span style="position:absolute;top:150px;right:320px;font-size:30px;color:#A5B4FC;animation:kfTwinkle 3.2s ease-in-out infinite">✦</span>
+  <span style="position:absolute;bottom:220px;left:300px;font-size:24px;color:#C7D2FE;animation:kfTwinkle 2.7s ease-in-out .9s infinite">✦</span>
+  <span style="position:absolute;top:380px;left:480px;font-size:24px;color:#818CF8;animation:kfTwinkle 3.9s ease-in-out 1.5s infinite">✦</span>
+  <div data-a="pop" style="width:230px;height:230px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 70px rgba(6,10,40,.45);margin-bottom:72px">
+    <img src="img/astronaut.png" alt="ScholAIstic astronaut" style="width:170px;height:170px;object-fit:contain;margin-top:10px">
+  </div>
+  <h1 data-a="up" style="--d:.2s;margin:0;font-size:80px;font-weight:500;letter-spacing:-1px;text-align:center;line-height:1.3;white-space:nowrap">Educators design the learning experience.<br><span style="font-weight:600;color:#B7A9FF">ScholAIstic enables it at scale.</span></h1>
+  <p data-a="up" style="--d:.5s;margin:80px 0 0;font-size:30px;color:rgba(255,255,255,.72)">AI Centre for Educational Technologies · National University of Singapore</p>
+  <p data-a="up" style="--d:.7s;margin:30px 0 0;padding:14px 34px;border:1px solid rgba(227,200,108,.45);border-radius:999px;font-size:26px;color:#E9D48A">Recipient of the OpenGov Asia Recognition of Excellence Award 2026</p>
+</section>
+
+
+
+
+
+</x-import>
+<sc-if value="{{ timerOn }}" hint-placeholder-val="{{ false }}">
+  <div id="vvip-timer" data-warn="{{ timerWarn }}" style="position:fixed;top:16px;right:16px;z-index:9999;display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #E4E1F6;border-radius:999px;padding:10px 24px;box-shadow:0 10px 30px rgba(16,24,70,.18);font-family:'Poppins',sans-serif">
+    <span style="font-size:24px;font-weight:600;letter-spacing:2px;color:#8B87B8">DEMO</span>
+    <span data-tv="1" style="font-size:30px;font-weight:700;color:#16225C;font-variant-numeric:tabular-nums">{{ timerText }}</span>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;videoFit&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;contain&quot;, &quot;cover&quot;], &quot;default&quot;: &quot;contain&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Recordings&quot;}}">
+class Component extends DCLogic {
+  state = {
+    students: 3600, courses: 30, faculties: 14,
+    activeBeat: 0, vids: {}, hookStep: 0, coachStep: 0, platformStep: 0, nextStep: 0, firstStep: 0,
+    hookTyped: '', hookTyping: false, hookDone: false,
+    timerOn: false, timerText: '5:00', timerWarn: false,
+    vids: { 1: 'media/01-ai-patient.mp4', 2: 'media/02-ai-consultant.mp4', 3: 'media/03-feedback.mp4' },
+  };
+  vidRefs = { 1: React.createRef(), 2: React.createRef(), 3: React.createRef(), 4: React.createRef() };
+  fileRef = React.createRef();
+
+  componentDidMount() {
+    this._loadAll();
+    this._onSlide = (e) => {
+      const slide = e.detail && e.detail.slide;
+      if (!slide) return;
+      this._slideId = slide.id || '';
+      if (slide.id === 'hook') this.setState({ hookStep: 0 });
+      if (slide.id === 'demo') this._setBeat(0);
+      if (slide.id === 'coach') this.setState({ coachStep: 0 });
+      if (slide.id === 'platform') this.setState({ platformStep: 0 });
+      if (slide.id === 'next') this.setState({ nextStep: 0 });
+      if (slide.id === 'first') this.setState({ firstStep: 0 });
+      if (slide.id === 'numbers') { this.setState({ scaleStep: 0 }); this._runCounters(); }
+      if (slide.id !== 'demo') this._pauseAll();
+    };
+    document.addEventListener('slidechange', this._onSlide);
+    this._steps = () => {
+      const sid = this._slideId;
+      return sid === 'demo'
+        ? { get: () => this.state.activeBeat, set: (n) => this._setBeat(n), max: 4 }
+        : sid === 'numbers'
+          ? { get: () => this.state.scaleStep, set: (n) => { if (n > 0 && this._raf) { cancelAnimationFrame(this._raf); this._raf = null; this.setState({ students: 3600, courses: 30, faculties: 14 }); } this.setState({ scaleStep: n }); }, max: 2 }
+          : sid === 'platform'
+            ? { get: () => this.state.platformStep, set: (n) => this.setState({ platformStep: n }), max: 3 }
+          : sid === 'next'
+            ? { get: () => this.state.nextStep, set: (n) => this.setState({ nextStep: n }), max: 5 }
+          : sid === 'first'
+            ? { get: () => this.state.firstStep, set: (n) => this.setState({ firstStep: n }), max: 1 }
+          : sid === 'coach'
+            ? { get: () => this.state.coachStep, set: (n) => this.setState({ coachStep: n }), max: 1 }
+          : sid === 'hook'
+            ? { get: () => this.state.hookStep, set: (n) => this.setState({ hookStep: n }), max: 2 }
+            : null;
+    };
+    // Advance one build step; returns false when the slide has no step left
+    // in that direction (caller lets the deck change slides instead).
+    this._step = (dir) => {
+      const steps = this._steps();
+      if (!steps) return false;
+      const cur = steps.get();
+      if (dir > 0 && cur < steps.max) { steps.set(cur + 1); return true; }
+      if (dir < 0 && cur > 0) { steps.set(cur - 1); return true; }
+      return false;
+    };
+    this._onNavKey = (e) => {
+      const t = (e.target && e.target.tagName) || '';
+      if (/INPUT|TEXTAREA|SELECT/.test(t) || e.metaKey || e.ctrlKey || e.altKey) return;
+      const dir = (e.key === 'ArrowRight' || e.key === 'PageDown') ? 1
+        : (e.key === 'ArrowLeft' || e.key === 'PageUp') ? -1 : 0;
+      if (dir && this._step(dir)) { e.preventDefault(); e.stopImmediatePropagation(); }
+    };
+    window.addEventListener('keydown', this._onNavKey, true);
+
+    // ---- Touch: swipe anywhere, or tap the left/right half (iPad) ----
+    const deck = () => document.querySelector('deck-stage');
+    const SAFE = 'a[href],button,input,select,textarea,video,audio,[role="button"],[contenteditable]';
+    const interactive = (e) => (e.composedPath ? e.composedPath() : [e.target]).some(
+      (n) => n && n.matches && n.matches(SAFE));
+    this._nav = (dir) => {
+      if (this._step(dir)) return;
+      const d = deck();
+      if (d) dir > 0 ? d.next() : d.prev();
+    };
+    this._onTouchStart = (e) => {
+      if (e.touches.length !== 1) { this._t0 = null; return; }
+      const t = e.touches[0];
+      this._t0 = { x: t.clientX, y: t.clientY, at: Date.now(), safe: interactive(e) };
+    };
+    this._onTouchEnd = (e) => {
+      const s = this._t0; this._t0 = null;
+      if (!s || s.safe) return;
+      const t = e.changedTouches && e.changedTouches[0];
+      if (!t) return;
+      const dx = t.clientX - s.x, dy = t.clientY - s.y, ms = Date.now() - s.at;
+      const swipe = Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4;
+      const tap = Math.abs(dx) < 12 && Math.abs(dy) < 12 && ms < 500;
+      if (!swipe && !tap) return;
+      // Swallow the synthetic click so deck-stage's own tap-nav doesn't
+      // also fire — we own navigation here.
+      this._swallow = true;
+      setTimeout(() => { this._swallow = false; }, 700);
+      e.preventDefault();
+      this._nav(swipe ? (dx < 0 ? 1 : -1) : (t.clientX < window.innerWidth / 2 ? -1 : 1));
+    };
+    this._onClickCap = (e) => {
+      if (!this._swallow) return;
+      this._swallow = false;
+      e.preventDefault(); e.stopImmediatePropagation();
+    };
+    window.addEventListener('touchstart', this._onTouchStart, { capture: true, passive: true });
+    window.addEventListener('touchend', this._onTouchEnd, { capture: true, passive: false });
+    window.addEventListener('click', this._onClickCap, true);
+    this._onKey = (e) => {
+      const t = (e.target && e.target.tagName) || '';
+      if (/INPUT|TEXTAREA|SELECT/.test(t) || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === 't' || e.key === 'T') this._toggleTimer();
+    };
+    document.addEventListener('keydown', this._onKey);
+    this._fitInt = setInterval(() => {
+      const fit = this.props.videoFit ?? 'contain';
+      Object.values(this.vidRefs).forEach((r) => { if (r.current) r.current.style.objectFit = fit; });
+    }, 600);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('slidechange', this._onSlide);
+    document.removeEventListener('keydown', this._onKey);
+    window.removeEventListener('keydown', this._onNavKey, true);
+    window.removeEventListener('touchstart', this._onTouchStart, true);
+    window.removeEventListener('touchend', this._onTouchEnd, true);
+    window.removeEventListener('click', this._onClickCap, true);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._typeT) clearTimeout(this._typeT);
+    if (this._timerInt) clearInterval(this._timerInt);
+    if (this._fitInt) clearInterval(this._fitInt);
+  }
+
+  _runCounters() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    this.setState({ students: 3600, courses: 30, faculties: 14 });
+    if (true) return;
+    const dur = 1500, t0 = performance.now();
+    const tick = (t) => {
+      const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      this.setState({ students: Math.round(3600 * e), courses: Math.round(30 * e), faculties: Math.round(14 * e) });
+      if (p < 1) this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+
+  _startTyping() {
+    const REPLY = 'Of course \u2014 here\u2019s a complete write-up, ready to submit:\n\nChief complaint: persistent cough, four weeks. Began dry, now productive with occasional blood-streaked sputum. Associated night sweats and mild weight loss. No fever\u2026';
+    this._typeToken = (this._typeToken || 0) + 1;
+    const tok = this._typeToken;
+    if (this._typeT) clearTimeout(this._typeT);
+    this.setState({ hookTyped: '', hookTyping: true, hookDone: false });
+    let i = 0;
+    const step = () => {
+      if (tok !== this._typeToken) return;
+      i = Math.min(i + 2, REPLY.length);
+      this.setState({ hookTyped: REPLY.slice(0, i) });
+      if (i < REPLY.length) this._typeT = setTimeout(step, 18);
+      else this._typeT = setTimeout(() => { if (tok === this._typeToken) this.setState({ hookTyping: false, hookDone: true }); }, 450);
+    };
+    this._typeT = setTimeout(step, 700);
+  }
+  _stopTyping() { this._typeToken = (this._typeToken || 0) + 1; if (this._typeT) clearTimeout(this._typeT); }
+
+  _setBeat(n) {
+    this.setState({ activeBeat: n });
+    Object.entries(this.vidRefs).forEach(([b, r]) => {
+      const v = r.current;
+      if (!v) return;
+      if (+b === n - 1) { try { v.currentTime = 0; } catch (e) {} v.play().catch(() => {}); }
+      else v.pause();
+    });
+  }
+  _pauseAll() { Object.values(this.vidRefs).forEach((r) => { if (r.current) r.current.pause(); }); }
+
+  componentDidUpdate() { this._syncSrcs(); }
+  _syncSrcs() {
+    const { vids, activeBeat } = this.state;
+    Object.entries(this.vidRefs).forEach(([b, r]) => {
+      const v = r.current, url = vids[b];
+      if (!v || !url) return;
+      if (v.__url !== url) {
+        v.__url = url;
+        v.src = url;
+        if (+b === activeBeat - 1) v.play().catch(() => {});
+      }
+    });
+  }
+
+  _db() {
+    if (this._dbp) return this._dbp;
+    this._dbp = new Promise((res, rej) => {
+      const rq = indexedDB.open('scholaistic-deck-media', 1);
+      rq.onupgradeneeded = () => rq.result.createObjectStore('videos');
+      rq.onsuccess = () => res(rq.result);
+      rq.onerror = () => rej(rq.error);
+    });
+    return this._dbp;
+  }
+  _get(db, key) {
+    return new Promise((res) => {
+      const rq = db.transaction('videos').objectStore('videos').get(key);
+      rq.onsuccess = () => res(rq.result); rq.onerror = () => res(null);
+    });
+  }
+  async _loadAll() {
+    try {
+      const db = await this._db();
+      const vids = { ...this.state.vids };
+      for (let b = 1; b <= 4; b++) {
+        let blob = await this._get(db, 'beat-' + b);
+        if (!blob && b === 1) blob = await this._get(db, 'ai-patient-session');
+        if (blob) vids[b] = URL.createObjectURL(blob);
+      }
+      if (Object.keys(vids).length) this.setState({ vids });
+    } catch (e) {}
+  }
+  async _saveVid(b, file) {
+    if (!file || !file.type.startsWith('video/')) return;
+    this.setState((s) => ({ vids: { ...s.vids, [b]: URL.createObjectURL(file) } }));
+    try {
+      const db = await this._db();
+      db.transaction('videos', 'readwrite').objectStore('videos').put(file, 'beat-' + b);
+    } catch (e) {}
+  }
+  async _removeVid(b) {
+    this.setState((s) => { const v = { ...s.vids }; delete v[b]; return { vids: v }; });
+    try {
+      const db = await this._db();
+      const st = db.transaction('videos', 'readwrite').objectStore('videos');
+      st.delete('beat-' + b);
+      if (b === 1) st.delete('ai-patient-session');
+    } catch (e) {}
+  }
+  _pick(b) { this._pendingBeat = b; if (this.fileRef.current) this.fileRef.current.click(); }
+
+  _toggleTimer() {
+    if (this._timerInt) {
+      clearInterval(this._timerInt); this._timerInt = null;
+      this.setState({ timerOn: false, timerWarn: false });
+      return;
+    }
+    const end = Date.now() + 5 * 60 * 1000;
+    this.setState({ timerOn: true, timerText: '5:00', timerWarn: false });
+    this._timerInt = setInterval(() => {
+      const left = Math.max(0, end - Date.now());
+      const m = Math.floor(left / 60000), s = Math.floor((left % 60000) / 1000);
+      this.setState({ timerText: m + ':' + String(s).padStart(2, '0'), timerWarn: left <= 60000 });
+      if (left <= 0) { clearInterval(this._timerInt); this._timerInt = null; }
+    }, 250);
+  }
+
+  renderVals() {
+    const CAPS = {
+      1: '01 \u00b7 AI Patient \u2014 the history emerges through the student\u2019s questions.',
+      2: '02 \u00b7 AI Consultant \u2014 reasoning built on what the student actually gathered.',
+      3: '03 \u00b7 Personalised feedback \u2014 against faculty-defined criteria.',
+    };
+    const st = this.state, ab = st.activeBeat;
+    const vals = {
+      studentsText: st.students.toLocaleString('en-US') + '+',
+      coursesText: st.courses + '+',
+      facultiesText: String(st.faculties),
+      hookTyped: st.hookTyped, hookTyping: st.hookTyping, hookDone: st.hookDone,
+      hook1: String((st.hookStep || 0) >= 1),
+      hook2: String((st.hookStep || 0) >= 2),
+      hookHint: String((st.hookStep || 0) < 2),
+      pMid: String((st.platformStep || 0) >= 1),
+      p3: String((st.platformStep || 0) >= 3),
+      pRight: String((st.platformStep || 0) >= 2),
+      n1: String((st.nextStep || 0) >= 1), n2: String((st.nextStep || 0) >= 2),
+      n3: String((st.nextStep || 0) >= 3), n4: String((st.nextStep || 0) >= 4),
+      n5: String((st.nextStep || 0) >= 5),
+      f1: String((st.firstStep || 0) >= 1),
+      coach0: String((st.coachStep || 0) === 0),
+      coach1: String((st.coachStep || 0) === 1),
+      questionOn: String(ab === 0),
+      ovOn: String(ab === 1),
+      playOn: String(ab >= 2 && ab <= 4),
+      step0: String(ab === 1), step1: String(ab === 2), step2: String(ab === 3),
+      step3: String(ab === 4), step4: 'false',
+      growth0: String((st.scaleStep || 0) === 0),
+      growthAny: String((st.scaleStep || 0) >= 1),
+      growth2: String((st.scaleStep || 0) === 2),
+      beatCaption: CAPS[ab - 1] || '',
+      hasActiveVid: ab > 1 && ab < 5 && !!st.vids[ab - 1],
+      onReplaceActive: () => this._pick(ab - 1),
+      onRemoveActive: () => this._removeVid(ab - 1),
+      onFile: (e) => {
+        const f = e.target.files && e.target.files[0];
+        if (this._pendingBeat) this._saveVid(this._pendingBeat, f);
+        e.target.value = '';
+      },
+      onDragOver: (e) => e.preventDefault(),
+      fileRef: this.fileRef,
+      timerOn: st.timerOn, timerText: st.timerText, timerWarn: String(st.timerWarn),
+    };
+    const clip = ab - 1;
+    for (let b = 0; b <= 4; b++) vals['beat' + b + 'Active'] = String(clip === b);
+    for (let b = 1; b <= 4; b++) {
+      vals['onBeat' + b] = () => this._setBeat(b + 1);
+      vals['vid' + b + 'Url'] = st.vids[b] || null;
+      vals['hasVid' + b] = !!st.vids[b];
+      vals['noVid' + b] = !st.vids[b];
+      vals['vidRef' + b] = this.vidRefs[b];
+      vals['onPick' + b] = (e) => { e.stopPropagation(); this._pick(b); };
+      vals['onDrop' + b] = (e) => { e.preventDefault(); this._saveVid(b, e.dataTransfer.files && e.dataTransfer.files[0]); };
+    }
+    return vals;
+  }
+}
+</script>
+</body>
+</html>
