@@ -57,6 +57,23 @@ section[data-deck-active] svg [data-draw]{stroke-dasharray:var(--len);stroke-das
 [data-reveal][data-on="true"]{opacity:1;transform:none}
 [data-shrink]{transition:transform .75s cubic-bezier(.22,1,.36,1),opacity .6s ease;transform-origin:top left}
 [data-shrink][data-on="true"]{transform:scale(.68);opacity:.38}
+[data-uch]{font-size:62px;transition:font-size .75s cubic-bezier(.22,1,.36,1)}
+[data-ucsub]{margin:20px 0 0;max-height:120px;overflow:hidden;transition:max-height .65s cubic-bezier(.22,1,.36,1),opacity .5s ease,margin-top .65s cubic-bezier(.22,1,.36,1)}
+[data-ucwrap]{flex:1 1 auto;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;transition:flex-grow .8s cubic-bezier(.22,1,.36,1)}
+[data-uccollapse]{overflow:hidden;max-height:760px;transition:max-height .7s cubic-bezier(.22,1,.36,1),opacity .45s ease}
+[data-ucstrip]{max-height:0;opacity:0;overflow:hidden;transition:max-height .7s cubic-bezier(.22,1,.36,1) .1s,opacity .6s ease .25s}
+[data-ucnum]{flex:0 1 auto;max-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;opacity:0;transform:translateY(26px);transition:flex-grow .8s cubic-bezier(.22,1,.36,1),max-height .8s cubic-bezier(.22,1,.36,1),opacity .6s cubic-bezier(.22,1,.36,1) .2s,transform .6s cubic-bezier(.22,1,.36,1) .2s}
+[data-cond][data-on="true"] [data-uch]{font-size:46px}
+[data-cond][data-on="true"] [data-ucsub]{max-height:0;opacity:0;margin-top:0}
+[data-cond][data-on="true"] [data-ucwrap]{flex-grow:0}
+[data-cond][data-on="true"] [data-uccollapse]{max-height:0;opacity:0}
+[data-cond][data-on="true"] [data-ucstrip]{max-height:150px;opacity:1}
+[data-cond][data-on="true"] [data-ucnum]{flex-grow:1;max-height:900px;opacity:1;transform:none}
+[data-dim2]{transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);transform-origin:top center}
+[data-dim2][data-on="true"]{opacity:.35;animation:none}
+[data-ucbridge]{margin:56px 0 0;transition:opacity .45s ease}
+[data-dim2][data-on="true"] [data-ucnum]{flex-grow:0}
+[data-dim2][data-on="true"] [data-ucbridge]{opacity:0}
 [data-layer]{display:none}
 [data-layer][data-on="true"]{display:flex}
 [data-beat]{opacity:.4;background:#F7F6FC}
@@ -111,67 +128,6 @@ section[data-deck-active] svg [data-draw]{stroke-dasharray:var(--len);stroke-das
   <div data-hstep="2" data-on="{{ hook2 }}" style="margin-top:34px">
     <p style="margin:0;font-size:28px;font-weight:600;letter-spacing:3px;color:#5848C4">AT NUS, PEDAGOGY COMES FIRST.</p>
     <p style="margin:20px 0 0;font-size:42px;font-weight:500;color:#4A4F6E;line-height:1.42;max-width:1600px;text-wrap:pretty">We begin with what students need to <span style="font-weight: 600; color: rgb(89, 72, 196);">learn and practise</span>, <br>then design the AI around that.</p>
-  </div>
-</section>
-
-<section id="platform" data-label="What is ScholAIstic" data-speaker-notes="0:50–1:40 · FOUR CLICKS. [on entry] Educators design the learning. PURPOSE — what students should practise or develop. CHALLENGE — how the AI reveals, withholds or responds. EVIDENCE — what success looks like and what educators need to see. No coding required. [CLICK] ScholAIstic turns that intent into a structured experience. [CLICK] Students learn by doing. PRACTISE — apply skills in a structured task. REASON — explain decisions and work through their thinking. FEEDBACK — guidance based on their actual interaction. [CLICK] The sides recede — land the line: every interaction becomes visible to educators. · Pedagogy first. Educators define the learning: what students should practise, how the AI reveals or withholds, and what evidence of success looks like — no coding. ScholAIstic turns that intent into a structured AI experience: AI roles, knowledge, modalities, evaluation. Students learn by doing — practise, reason, receive feedback — and every interaction becomes visible to the educator." style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;padding:46px 90px;font-family:'Poppins',sans-serif" data-om-slide-id="5336c6f2">
-  <p data-a="fade" style="margin:0;font-size:27px;font-weight:600;letter-spacing:4px;color:#8B87B8">PEDAGOGY FIRST</p>
-  <h2 data-a="up" style="--d:.1s;margin:14px 0 0;font-size:54px;font-weight:600;letter-spacing:-.5px;line-height:1.18">Educators <span style="color:#5848C4">design the learning</span>.<br>ScholAIstic enables the experience.</h2>
-  <div style="flex:1;min-height:0;display:grid;grid-template-columns:1fr 150px 500px 150px 1fr;align-items:stretch;gap:14px;margin-top:6px;padding-bottom:96px">
-    <div data-a="left" style="display:flex;flex-direction:column;justify-content:center">
-      <div data-pdim="1" data-on="{{ p3 }}" style="display:grid;grid-template-rows:300px auto auto;gap:26px">
-        <img src="img/design.png" alt="Educator designing an activity in ScholAIstic" style="width:100%;height:300px;object-fit:contain;object-position:center bottom">
-        <p style="margin:0;font-size:28px;font-weight:600;letter-spacing:2.5px;color:#5848C4">EDUCATORS DECIDE</p>
-        <div style="display:flex;flex-direction:column;gap:16px">
-          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">What students practise</p>
-          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">How the AI responds</p>
-          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">What counts as success</p>
-        </div>
-      </div>
-    </div>
-    <div data-reveal="1" data-on="{{ pMid }}" style="display:flex;flex-direction:column;justify-content:center">
-      <div data-pdim="1" data-on="{{ p3 }}" style="display:flex;flex-direction:column;gap:16px">
-        <div><p style="margin:0 0 6px;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">learning design</p>
-        <svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:.9s" d="M4 15 H128 M128 6 l16 9 -16 9" fill="none" stroke="#5848C4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
-        <div><svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:1.05s" d="M146 15 H22 M22 6 l-16 9 16 9" fill="none" stroke="#8B80E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        <p style="margin:6px 0 0;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">visibility &amp; insights</p></div>
-      </div>
-    </div>
-    <div data-reveal="1" data-on="{{ pMid }}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;align-self:center">
-      <div style="position:relative;width:340px;margin:44px 0 6px">
-        <img src="img/orchestration.png" alt="ScholAIstic orchestration" style="width:100%;display:block">
-        <p data-a="fade" style="--d:1.2s;position:absolute;top:-42px;left:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">AI models</p>
-        <p data-a="fade" style="--d:1.3s;position:absolute;top:-42px;right:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">Modalities</p>
-        <p data-a="fade" style="--d:1.5s;position:absolute;bottom:-40px;left:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">Analytics</p>
-        <p data-a="fade" style="--d:1.4s;position:absolute;bottom:-40px;right:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">Knowledge</p>
-      </div>
-      <div style="text-align:center;margin-top:38px">
-        <p style="margin:0;font-size:28px;font-weight:600;letter-spacing:2.5px;color:#5848C4">SCHOLAISTIC ENABLES</p>
-        <p style="margin:12px 0 0;font-size:30px;font-weight:400;line-height:1.36;color:#4A4F6E;text-wrap:pretty">Turns pedagogical intent into a structured AI learning experience.</p>
-      </div>
-    </div>
-    <div data-reveal="1" data-on="{{ pRight }}" style="display:flex;flex-direction:column;justify-content:center">
-      <div data-pdim="1" data-on="{{ p3 }}" style="display:flex;flex-direction:column;gap:16px">
-        <div><p style="margin:0 0 6px;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">practice &amp; feedback</p>
-        <svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:1.2s" d="M4 15 H128 M128 6 l16 9 -16 9" fill="none" stroke="#5848C4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
-        <div><svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:1.35s" d="M146 15 H22 M22 6 l-16 9 16 9" fill="none" stroke="#8B80E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        <p style="margin:6px 0 0;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">interaction evidence</p></div>
-      </div>
-    </div>
-    <div data-reveal="1" data-on="{{ pRight }}" style="display:flex;flex-direction:column;justify-content:center">
-      <div data-pdim="1" data-on="{{ p3 }}" style="display:grid;grid-template-rows:300px auto auto;gap:26px">
-        <img src="img/practice.png" alt="Student practising with an AI patient" style="width:100%;height:300px;object-fit:contain;object-position:center bottom">
-        <p style="margin:0;font-size:28px;font-weight:600;letter-spacing:2.5px;color:#5848C4">STUDENTS PRACTISE</p>
-        <div style="display:flex;flex-direction:column;gap:16px">
-          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">Work through the task</p>
-          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">Explain their reasoning</p>
-          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">Act on the feedback</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div data-reveal="1" data-on="{{ p3 }}" style="position:absolute;left:90px;right:90px;bottom:56px;justify-content:center">
-    <p style="margin:0;font-size:46px;font-weight:600;letter-spacing:-.4px;color:#16225C;text-align:center">Every interaction becomes <span style="color:#5848C4">visible to educators</span>.</p>
   </div>
 </section>
 
@@ -251,6 +207,67 @@ section[data-deck-active] svg [data-draw]{stroke-dasharray:var(--len);stroke-das
   <input ref="{{ fileRef }}" type="file" accept="video/*" onChange="{{ onFile }}" style="display:none">
 </section>
 
+<section id="platform" data-label="What is ScholAIstic" data-speaker-notes="0:50–1:40 · FOUR CLICKS. [on entry] Educators design the learning. PURPOSE — what students should practise or develop. CHALLENGE — how the AI reveals, withholds or responds. EVIDENCE — what success looks like and what educators need to see. No coding required. [CLICK] ScholAIstic turns that intent into a structured experience. [CLICK] Students learn by doing. PRACTISE — apply skills in a structured task. REASON — explain decisions and work through their thinking. FEEDBACK — guidance based on their actual interaction. [CLICK] The sides recede — land the line: every interaction becomes visible to educators. · Pedagogy first. Educators define the learning: what students should practise, how the AI reveals or withholds, and what evidence of success looks like — no coding. ScholAIstic turns that intent into a structured AI experience: AI roles, knowledge, modalities, evaluation. Students learn by doing — practise, reason, receive feedback — and every interaction becomes visible to the educator." style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;padding:46px 90px;font-family:'Poppins',sans-serif" data-om-slide-id="5336c6f2">
+  <p data-a="fade" style="margin:0;font-size:27px;font-weight:600;letter-spacing:4px;color:#8B87B8">PEDAGOGY FIRST</p>
+  <h2 data-a="up" style="--d:.1s;margin:14px 0 0;font-size:54px;font-weight:600;letter-spacing:-.5px;line-height:1.18">Educators <span style="color:#5848C4">design the learning</span>.<br>ScholAIstic enables the experience.</h2>
+  <div style="flex:1;min-height:0;display:grid;grid-template-columns:1fr 150px 500px 150px 1fr;align-items:stretch;gap:14px;margin-top:6px;padding-bottom:96px">
+    <div data-a="left" style="display:flex;flex-direction:column;justify-content:center">
+      <div data-pdim="1" data-on="{{ p3 }}" style="display:grid;grid-template-rows:300px auto auto;gap:26px">
+        <img src="img/design.png" alt="Educator designing an activity in ScholAIstic" style="width:100%;height:300px;object-fit:contain;object-position:center bottom">
+        <p style="margin:0;font-size:28px;font-weight:600;letter-spacing:2.5px;color:#5848C4">EDUCATORS DECIDE</p>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">What students practise</p>
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">How the AI responds</p>
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">What counts as success</p>
+        </div>
+      </div>
+    </div>
+    <div data-reveal="1" data-on="{{ pMid }}" style="display:flex;flex-direction:column;justify-content:center">
+      <div data-pdim="1" data-on="{{ p3 }}" style="display:flex;flex-direction:column;gap:16px">
+        <div><p style="margin:0 0 6px;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">learning design</p>
+        <svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:.9s" d="M4 15 H128 M128 6 l16 9 -16 9" fill="none" stroke="#5848C4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div><svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:1.05s" d="M146 15 H22 M22 6 l-16 9 16 9" fill="none" stroke="#8B80E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <p style="margin:6px 0 0;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">visibility &amp; insights</p></div>
+      </div>
+    </div>
+    <div data-reveal="1" data-on="{{ pMid }}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;align-self:center">
+      <div style="position:relative;width:340px;margin:44px 0 6px">
+        <img src="img/orchestration.png" alt="ScholAIstic orchestration" style="width:100%;display:block">
+        <p data-a="fade" style="--d:1.2s;position:absolute;top:-42px;left:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">AI models</p>
+        <p data-a="fade" style="--d:1.3s;position:absolute;top:-42px;right:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">Modalities</p>
+        <p data-a="fade" style="--d:1.5s;position:absolute;bottom:-40px;left:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">Analytics</p>
+        <p data-a="fade" style="--d:1.4s;position:absolute;bottom:-40px;right:-46px;width:150px;margin:0;font-size:27px;font-weight:600;color:#4B3FCF;text-align:center">Knowledge</p>
+      </div>
+      <div style="text-align:center;margin-top:38px">
+        <p style="margin:0;font-size:28px;font-weight:600;letter-spacing:2.5px;color:#5848C4">SCHOLAISTIC ENABLES</p>
+        <p style="margin:12px 0 0;font-size:30px;font-weight:400;line-height:1.36;color:#4A4F6E;text-wrap:pretty">Turns educator-designed learning into a structured AI experience at scale.</p>
+      </div>
+    </div>
+    <div data-reveal="1" data-on="{{ pRight }}" style="display:flex;flex-direction:column;justify-content:center">
+      <div data-pdim="1" data-on="{{ p3 }}" style="display:flex;flex-direction:column;gap:16px">
+        <div><p style="margin:0 0 6px;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">practice &amp; feedback</p>
+        <svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:1.2s" d="M4 15 H128 M128 6 l16 9 -16 9" fill="none" stroke="#5848C4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div><svg width="130" height="30" viewBox="0 0 150 30" style="display:block;margin:0 auto"><path data-draw="1" style="--len:180px;--d:1.35s" d="M146 15 H22 M22 6 l-16 9 16 9" fill="none" stroke="#8B80E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <p style="margin:6px 0 0;font-size:25px;font-style:italic;color:#4B4F86;text-align:center">interaction evidence</p></div>
+      </div>
+    </div>
+    <div data-reveal="1" data-on="{{ pRight }}" style="display:flex;flex-direction:column;justify-content:center">
+      <div data-pdim="1" data-on="{{ p3 }}" style="display:grid;grid-template-rows:300px auto auto;gap:26px">
+        <img src="img/practice.png" alt="Student practising with an AI patient" style="width:100%;height:300px;object-fit:contain;object-position:center bottom">
+        <p style="margin:0;font-size:28px;font-weight:600;letter-spacing:2.5px;color:#5848C4">STUDENTS PRACTISE</p>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">Work through the task</p>
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">Explain their reasoning</p>
+          <p style="margin:0;font-size:32px;font-weight:400;line-height:1.3;color:#3A3F5C;text-wrap:pretty">Act on the feedback</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-reveal="1" data-on="{{ p3 }}" style="position:absolute;left:90px;right:90px;bottom:56px;justify-content:center">
+    <p style="margin:0;font-size:46px;font-weight:600;letter-spacing:-.4px;color:#16225C;text-align:center">Every interaction becomes <span style="color:#5848C4">visible to educators</span>.</p>
+  </div>
+</section>
+
 <section id="coach" data-label="Leadership coaching" data-speaker-notes="[THE TEACHING CHALLENGE ~10s] “Leadership requires reflection, but that reflection often happens after the conversation is over. The educators asked how reflection could shape what students do next, while the interaction was still unfolding.” [CLICK → THE LEARNING DESIGN] Students coach an AI employee through a difficult conversation, pause mid-conversation to examine what is happening and decide what to try next, then return and apply the revised approach. Reflection is placed where it can shape the learner’s next action — designed by NUS educators, enabled through ScholAIstic." style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;padding:46px 90px 42px;font-family:'Poppins',sans-serif" data-om-slide-id="bb763fee">
   <div data-a="up" style="display:flex;align-items:baseline;justify-content:space-between;gap:40px">
     <p style="margin:0;font-size:27px;font-weight:600;letter-spacing:4px;color:#5848C4">LEARNING DESIGN IN ACTION</p>
@@ -286,52 +303,87 @@ section[data-deck-active] svg [data-draw]{stroke-dasharray:var(--len);stroke-das
   </div>
 </section>
 
-<section id="numbers" data-label="Across NUS" data-speaker-notes="3:10—3:50 · Since 2024, educators across NUS have used ScholAIstic to design AI-enabled learning experiences around specific teaching and learning needs — 3,600-plus students, 30-plus courses, 14 faculties and schools. Law cross-examines an AI witness, Dentistry interprets radiographs with an AI tutor, Computing coaches an AI employee. CLICK: and this travels beyond NUS — collaborations with schools, universities and public-sector agencies in Singapore and internationally, to share pedagogy-first AI learning design." style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;padding:46px 100px 42px;font-family:'Poppins',sans-serif" data-om-slide-id="d6128b15">
-  <p data-a="fade" style="margin:0;font-size:27px;font-weight:600;letter-spacing:4px;color:#5848C4">ACROSS NUS AND BEYOND</p>
+<section id="numbers" data-label="Across NUS" data-speaker-notes="3:10—3:50 · TWO CLICKS. Open on breadth: nine disciplines, nine different learning designs — Law cross-examines an AI witness, Dentistry interprets radiographs, Pharmacy reasons with an AI preceptor. Each built by educators around their own teaching and learning need. CLICK: these are not isolated pilots — since 2024, 3,600-plus students, 30-plus courses, 14 faculties and schools. Designed by educators, enabled through ScholAIstic. CLICK: and it extends beyond NUS — collaborations with schools, universities and public-sector agencies in Singapore and internationally, to share pedagogy-first AI learning design." style="position:relative;overflow:hidden;background:#FDFDFF;color:#16225C;display:flex;flex-direction:column;padding:46px 100px 42px;font-family:'Poppins',sans-serif" data-om-slide-id="d6128b15">
+  <p data-a="fade" data-dim2="1" data-on="{{ growth2 }}" style="margin:0;font-size:27px;font-weight:600;letter-spacing:4px;color:#5848C4">ACROSS NUS AND BEYOND</p>
 
   <div style="flex:1;min-height:0;position:relative;margin-top:16px">
-    <div data-shrink="1" data-on="{{ growth2 }}" style="display:flex;flex-direction:column">
-      <h2 style="margin:0;font-size:62px;font-weight:600;letter-spacing:-1px;line-height:1.14">Thoughtful AI learning design <span style="color:#5848C4">across NUS</span></h2>
-      <p style="margin:24px 0 0;max-width:1560px;font-size:36px;font-weight:400;line-height:1.4;color:#4A4F6E;text-wrap:pretty">Different learning goals require different learning designs.</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:40px 0 0">
-        <div style="background:#F4F3FC;border:1px solid #E4E1F6;border-radius:22px;padding:30px 34px">
-          <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">NUS LAW</p>
-          <p style="margin:12px 0 0;font-size:34px;font-weight:600;line-height:1.28;color:#16225C;text-wrap:pretty">Cross-examine an AI witness</p>
-        </div>
-        <div style="background:#F4F3FC;border:1px solid #E4E1F6;border-radius:22px;padding:30px 34px">
-          <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">NUS DENTISTRY</p>
-          <p style="margin:12px 0 0;font-size:34px;font-weight:600;line-height:1.28;color:#16225C;text-wrap:pretty">Interpret radiographs with an AI tutor</p>
-        </div>
-        <div style="background:#F4F3FC;border:1px solid #E4E1F6;border-radius:22px;padding:30px 34px">
-          <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">NUS SOCIAL WORK</p>
-          <p style="margin:12px 0 0;font-size:34px;font-weight:600;line-height:1.28;color:#16225C;text-wrap:pretty">Build rapport with an AI client</p>
+    <div data-dim2="1" data-on="{{ growth2 }}" style="position:absolute;inset:0;display:flex;flex-direction:column">
+    <div data-cond="1" data-on="{{ growthAny }}" style="display:flex;flex-direction:column;flex:1;min-height:0">
+      <h2 data-uch="1" style="margin:0;font-weight:600;letter-spacing:-1px;line-height:1.14">Thoughtful AI learning design <span style="color:#5848C4">across NUS</span></h2>
+      <p data-ucsub="1" style="max-width:1560px;font-size:34px;font-weight:400;line-height:1.4;color:#4A4F6E;text-wrap:pretty">Different teaching and learning needs require different learning designs.</p>
+      <div data-ucwrap="1">
+        <div data-uccollapse="1">
+          <div style="display:flex;gap:22px;margin-top:26px">
+            <div data-a="up" style="--d:.1s;flex:1;background:#F4F3FC;border:1px solid #E4E1F6;border-radius:22px;padding:30px 36px">
+              <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">LAW</p>
+              <p style="margin:16px 0 0;font-size:36px;font-weight:400;line-height:1.3;color:#3F4467;text-wrap:pretty"><b style="font-weight:600;color:#16225C">Cross-examine</b> an AI witness</p>
+            </div>
+            <div data-a="up" style="--d:.2s;flex:1;background:#F4F3FC;border:1px solid #E4E1F6;border-radius:22px;padding:30px 36px">
+              <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">DENTISTRY</p>
+              <p style="margin:16px 0 0;font-size:36px;font-weight:400;line-height:1.3;color:#3F4467;text-wrap:pretty"><b style="font-weight:600;color:#16225C">Interpret</b> radiographs with an AI tutor</p>
+            </div>
+            <div data-a="up" style="--d:.3s;flex:1;background:#F4F3FC;border:1px solid #E4E1F6;border-radius:22px;padding:30px 36px">
+              <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">SOCIAL WORK</p>
+              <p style="margin:16px 0 0;font-size:36px;font-weight:400;line-height:1.3;color:#3F4467;text-wrap:pretty"><b style="font-weight:600;color:#16225C">Build rapport</b> with an AI client</p>
+            </div>
+          </div>
+          <div data-a="up" style="--d:.45s;display:grid;grid-template-columns:repeat(3,1fr);gap:36px 22px;margin-top:46px">
+            <div style="padding:0 36px">
+              <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">BUSINESS</p>
+              <p style="margin:10px 0 0;font-size:28px;font-weight:400;line-height:1.35;color:#3F4467;text-wrap:pretty"><b style="font-weight:600;color:#16225C">Interview</b> and <b style="font-weight:600;color:#16225C">negotiate</b> with AI stakeholders</p>
+            </div>
+            <div style="padding:0 36px">
+              <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">LANGUAGE STUDIES</p>
+              <p style="margin:10px 0 0;font-size:28px;font-weight:400;line-height:1.35;color:#3F4467;text-wrap:pretty"><b style="font-weight:600;color:#16225C">Practise</b> everyday German with an AI exchange student</p>
+            </div>
+            <div style="padding:0 36px">
+              <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">CAREER READINESS</p>
+              <p style="margin:10px 0 0;font-size:28px;font-weight:400;line-height:1.35;color:#3F4467;text-wrap:pretty"><b style="font-weight:600;color:#16225C">Rehearse</b> job interviews with an AI recruiter</p>
+            </div>
+            <div style="padding:0 36px">
+              <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">PHARMACY</p>
+              <p style="margin:10px 0 0;font-size:28px;font-weight:400;line-height:1.35;color:#3F4467;text-wrap:pretty"><b style="font-weight:600;color:#16225C">Assess</b> an AI customer and <b style="font-weight:600;color:#16225C">reason</b> with an AI preceptor</p>
+            </div>
+            <div style="padding:0 36px">
+              <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">NURSING</p>
+              <p style="margin:10px 0 0;font-size:28px;font-weight:400;line-height:1.35;color:#3F4467;text-wrap:pretty"><b style="font-weight:600;color:#16225C">Navigate</b> thesis research with an AI methods coach</p>
+            </div>
+            <div style="padding:0 36px">
+              <p style="margin:0;font-size:25px;font-weight:600;letter-spacing:2.5px;color:#5848C4">ENGINEERING DESIGN</p>
+              <p style="margin:10px 0 0;font-size:28px;font-weight:400;line-height:1.35;color:#3F4467;text-wrap:pretty"><b style="font-weight:600;color:#16225C">Stress-test</b> problem statements with an AI auditor</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div data-reveal="1" data-on="{{ growthAny }}" style="display:flex;flex-direction:column">
-        <p style="margin:40px 0 0;max-width:1620px;font-size:34px;font-weight:400;line-height:1.42;color:#4A4F6E;text-wrap:pretty">Since 2024, NUS educators have used ScholAIstic to create AI-enabled learning experiences around distinct teaching and learning needs.</p>
-        <div style="display:grid;grid-template-columns:auto 84px auto 84px auto;justify-content:start;align-items:start;margin:40px 0 0">
+      <div data-ucstrip="1">
+        <p style="margin:30px 0 0;font-size:24px;font-weight:600;letter-spacing:2.5px;color:#5848C4;line-height:1.75">LAW<span style="color:#C3C0D8;font-weight:400"> · </span>DENTISTRY<span style="color:#C3C0D8;font-weight:400"> · </span>SOCIAL WORK<span style="color:#C3C0D8;font-weight:400"> · </span>BUSINESS<span style="color:#C3C0D8;font-weight:400"> · </span>LANGUAGE STUDIES<span style="color:#C3C0D8;font-weight:400"> · </span>CAREER READINESS<span style="color:#C3C0D8;font-weight:400"> · </span>PHARMACY<span style="color:#C3C0D8;font-weight:400"> · </span>NURSING<span style="color:#C3C0D8;font-weight:400"> · </span>ENGINEERING DESIGN</p>
+      </div>
+      <div data-ucnum="1">
+        <p style="margin:64px 0 0;max-width:1620px;font-size:34px;font-weight:400;line-height:1.4;color:#4A4F6E;text-wrap:pretty">Since 2024, this work has reached more than 3,600 students across over 30 courses and 14 faculties and schools.</p>
+        <div style="display:grid;grid-template-columns:auto auto auto;justify-content:start;gap:0 160px;margin:52px 0 0">
           <div>
-            <p style="margin:0;font-size:104px;font-weight:700;color:#5848C4;line-height:1;letter-spacing:-3px">3,600+</p>
-            <p style="margin:14px 0 0;font-size:33px;color:#3A3F5C;white-space:nowrap">students</p>
+            <p style="margin:0;font-size:190px;font-weight:700;color:#5848C4;line-height:1;letter-spacing:-6px">3,600+</p>
+            <p style="margin:14px 0 0;font-size:34px;color:#3A3F5C;white-space:nowrap">students</p>
           </div>
-          <div style="display:flex;align-items:center;justify-content:center;padding-top:24px"><span style="font-size:44px;color:#C3C0D8;line-height:1">·</span></div>
           <div>
-            <p style="margin:0;font-size:104px;font-weight:700;color:#5848C4;line-height:1;letter-spacing:-3px;">30+</p>
-            <p style="margin:14px 0 0;font-size:33px;color:#3A3F5C;white-space:nowrap">courses</p>
+            <p style="margin:0;font-size:190px;font-weight:700;color:#5848C4;line-height:1;letter-spacing:-6px">30+</p>
+            <p style="margin:14px 0 0;font-size:34px;color:#3A3F5C;white-space:nowrap">courses</p>
           </div>
-          <div style="display:flex;align-items:center;justify-content:center;padding-top:24px"><span style="font-size:44px;color:#C3C0D8;line-height:1">·</span></div>
           <div>
-            <p style="margin:0;font-size:104px;font-weight:700;color:#5848C4;line-height:1;letter-spacing:-3px;">14</p>
-            <p style="margin:14px 0 0;font-size:33px;color:#3A3F5C;white-space:nowrap">faculties and schools</p>
+            <p style="margin:0;font-size:190px;font-weight:700;color:#5848C4;line-height:1;letter-spacing:-6px">14</p>
+            <p style="margin:14px 0 0;font-size:34px;color:#3A3F5C;white-space:nowrap">faculties and schools</p>
           </div>
         </div>
-        <p style="margin:36px 0 0;font-size:36px;font-weight:500;color:#5848C4">Designed by educators. Enabled through ScholAIstic.</p>
+        <p data-ucbridge="1" style="font-size:34px;font-weight:500;color:#5848C4">Designed by educators. Enabled through ScholAIstic.</p>
       </div>
     </div>
+    </div>
 
-    <div data-layer="g1" data-on="{{ growth2 }}" style="position:absolute;left:0;right:0;top:65%;flex-direction:column">
-      <p style="margin:0;font-size:30px;font-weight:600;letter-spacing:6px;color:#5848C4;animation:kfFade .7s .35s both">BEYOND NUS</p>
-      <p style="margin:26px 0 0;max-width:1680px;font-size:58px;font-weight:600;line-height:1.22;letter-spacing:-.8px;color:#16225C;text-wrap:pretty;animation:kfUp .8s .5s both">Collaborations with <span style="color:#5848C4">schools, universities and public-sector agencies</span> in Singapore and internationally, to share pedagogy-first AI learning design.</p>
+    <div data-layer="g1" data-on="{{ growth2 }}" style="position:absolute;left:0;right:0;bottom:0;flex-direction:column">
+      <div style="background:#FFFFFF;border:1px solid #E4E1F6;border-radius:24px;padding:38px 58px 44px;box-shadow:0 26px 80px rgba(22,34,92,.16);animation:kfUp .8s .2s both">
+        <p style="margin:0;font-size:27px;font-weight:600;letter-spacing:6px;color:#5848C4">BEYOND NUS</p>
+        <p style="margin:18px 0 0;max-width:1620px;font-size:46px;font-weight:600;line-height:1.26;letter-spacing:-.6px;color:#16225C;text-wrap:pretty">Collaborations with <span style="color:#5848C4">schools, universities and public-sector agencies</span> in Singapore and internationally, to share pedagogy-first AI learning design.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -374,9 +426,8 @@ section[data-deck-active] svg [data-draw]{stroke-dasharray:var(--len);stroke-das
       <svg width="150" height="150" viewBox="0 0 100 100" fill="none" stroke="#5848C4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M10 84h84"></path><rect x="16" y="60" width="13" height="24" rx="2"></rect><rect x="35" y="48" width="13" height="36" rx="2"></rect><rect x="54" y="54" width="13" height="30" rx="2"></rect><rect x="73" y="34" width="13" height="50" rx="2"></rect><path d="M22 42l20-12 18 8 22-20"></path><circle cx="22" cy="42" r="3.6"></circle><circle cx="42" cy="30" r="3.6"></circle><circle cx="60" cy="38" r="3.6"></circle><circle cx="82" cy="18" r="3.6"></circle></svg>
     </div>
   </div>
-  <div data-reveal="1" data-on="{{ n5 }}" style="display:flex;align-items:center;gap:30px;margin:22px 0 0;background:#F1EEFB;border:1px solid #D9D1F5;border-radius:24px;padding:28px 40px;box-shadow:0 22px 60px rgba(43,57,144,.12)">
-    <span style="flex:none;width:66px;height:66px;border:2px solid #5848C4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;color:#5848C4">✦</span>
-    <p style="margin:0;font-size:44px;font-weight:400;line-height:1.3;color:#8B87B8;text-wrap:pretty">Technology opens new possibilities.<br><span style="font-weight:600;color:#5848C4">Educators turn them into purposeful learning.</span></p>
+  <div data-reveal="1" data-on="{{ n5 }}" style="margin:22px 0 0;background:#FFFFFF;border:1px solid #E4E1F6;border-radius:24px;padding:36px 58px 42px;box-shadow:0 26px 80px rgba(22,34,92,.16)">
+    <p style="margin:0;font-size:46px;font-weight:600;line-height:1.26;letter-spacing:-.6px;color:#16225C;text-wrap:pretty">Technology opens new possibilities. <span style="color:#5848C4">Educators turn them into purposeful learning.</span></p>
   </div>
 </section>
 
