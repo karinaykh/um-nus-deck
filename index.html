@@ -521,6 +521,15 @@ class Component extends DCLogic {
       if (e.key === 'f' || e.key === 'F') this._toggleFull();
     };
     document.addEventListener('keydown', this._onKey);
+    this._chrome();
+    this._onFs = () => {
+      const d = document.querySelector('deck-stage');
+      if (!d) return;
+      if (this._fsOn()) d.setAttribute('no-rail', '');
+      else d.removeAttribute('no-rail');
+    };
+    document.addEventListener('fullscreenchange', this._onFs);
+    document.addEventListener('webkitfullscreenchange', this._onFs);
     this._fitInt = setInterval(() => {
       const fit = this.props.videoFit ?? 'contain';
       Object.values(this.vidRefs).forEach((r) => { if (r.current) r.current.style.objectFit = fit; });
@@ -529,6 +538,10 @@ class Component extends DCLogic {
   componentWillUnmount() {
     document.removeEventListener('slidechange', this._onSlide);
     document.removeEventListener('keydown', this._onKey);
+    document.removeEventListener('fullscreenchange', this._onFs);
+    document.removeEventListener('webkitfullscreenchange', this._onFs);
+    if (this._chromeT) clearTimeout(this._chromeT);
+    if (this._toastT) clearTimeout(this._toastT);
     window.removeEventListener('keydown', this._onNavKey, true);
     window.removeEventListener('touchstart', this._onTouchStart, true);
     window.removeEventListener('touchend', this._onTouchEnd, true);
@@ -579,11 +592,47 @@ class Component extends DCLogic {
       else v.pause();
     });
   }
+  // Hide deck-stage's bottom control bar (it flashes on every mouse move /
+  // slide change). Lives in the stage's shadow root, so page CSS can't
+  // reach it — inject a style element there instead.
+  _chrome() {
+    if (this._chromeT) { clearTimeout(this._chromeT); this._chromeT = null; }
+    const d = document.querySelector('deck-stage');
+    const r = d && d.shadowRoot;
+    if (!r) { this._chromeT = setTimeout(() => this._chrome(), 300); return; }
+    let s = r.getElementById('vvip-chrome');
+    if (!s) { s = document.createElement('style'); s.id = 'vvip-chrome'; r.appendChild(s); }
+    const want = (this.props.showControls ?? false)
+      ? ''
+      : '.overlay{display:none !important;opacity:0 !important;pointer-events:none !important}';
+    if (s.textContent !== want) s.textContent = want;
+  }
+
+  _fsOn() { return !!(document.fullscreenElement || document.webkitFullscreenElement); }
   _toggleFull() {
+    if (this._fsOn()) {
+      (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      return;
+    }
     const el = document.documentElement;
-    const on = document.fullscreenElement || document.webkitFullscreenElement;
-    if (on) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
-    else (el.requestFullscreen || el.webkitRequestFullscreen).call(el);
+    const req = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!req) { this._toast('Full screen is not available in this browser'); return; }
+    let p = null;
+    try { p = req.call(el, { navigationUI: 'hide' }); } catch (err) { p = null; }
+    if (p && p.catch) p.catch(() => this._toast('Full screen is blocked inside this panel — open the deck in its own browser tab, then press F'));
+  }
+  _toast(msg) {
+    let t = document.getElementById('vvip-toast');
+    if (!t) {
+      t = document.createElement('div');
+      t.id = 'vvip-toast';
+      t.style.cssText = 'position:fixed;left:50%;bottom:40px;transform:translateX(-50%);z-index:2147483647;max-width:min(680px,86vw);padding:14px 22px;border-radius:12px;background:#16225C;color:#fff;font:500 18px/1.4 system-ui,-apple-system,sans-serif;box-shadow:0 12px 40px rgba(22,34,92,.35);text-align:center';
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.style.opacity = '1';
+    clearTimeout(this._toastT);
+    this._toastT = setTimeout(() => { t.style.transition = 'opacity .4s'; t.style.opacity = '0'; }, 3200);
   }
   _toggleVid(e) {
     const v = e && e.currentTarget;
@@ -592,7 +641,7 @@ class Component extends DCLogic {
   }
   _pauseAll() { Object.values(this.vidRefs).forEach((r) => { if (r.current) r.current.pause(); }); }
 
-  componentDidUpdate() { this._syncSrcs(); }
+  componentDidUpdate() { this._syncSrcs(); this._chrome(); }
   _syncSrcs() {
     const { vids, activeBeat } = this.state;
     Object.entries(this.vidRefs).forEach(([b, r]) => {
